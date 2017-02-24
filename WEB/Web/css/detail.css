@@ -1,0 +1,98 @@
+﻿#content {
+    margin-bottom: 10px;
+}
+
+#title {
+    background: url("../images/spriteR.png") repeat-x scroll left -206px #FFFFFF;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+#title h1 {
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+#title h1 .qk {
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+#title h1 font {
+    font-size: 16px;
+}
+#title .desc {
+    color: #FF9900;
+    font-size: 14px;
+    font-weight: 700;
+}
+.summary {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #CDCDCD;
+    color: #242424;
+    line-height: 20px;
+    padding:10px;
+}
+.summary .author {
+    text-align: left;
+}
+.summary .authorc {
+    text-align: center;
+}
+.summary p {
+    clear: both;
+    font-size: 12px;
+    line-height: 22px;
+    margin: 10px;
+    text-indent: -5px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.summary ul {
+    clear: both;
+    line-height: 26px;
+    padding-left: 5px;
+}
+.summary li {
+    float: left;
+    padding: 0 10px;
+}
+.summary ul.break li {
+    white-space: nowrap;
+}
+
+.summary p a {
+    color: #153ED4;
+    text-decoration: none;
+}
+.summary p a:hover {
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.summary01 {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #CDCDCD;
+}
+.summary01 ul {
+    line-height: 26px;
+    margin: 0 10px 0 5px;
+}
+.summary01 li {
+    float: left;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.summary .keywords {
+    margin: 0 10px 0 5px;
+}
+.keywords span {
+    color: #002B82;
+}
+
+.blankw {
+    clear: both;
+    font-size: 2px;
+    height: 2px;
+    line-height: 2px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="/css/right.css"/>
+    <script type="text/javascript" src="/js/jquery-1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btnReadCMP").click(function() {RequestCmd(252, 31, "")});
+        });
+
+        function RequestCmd(cmdtype, cmdbyte, params) {
+            var devId = $("#selDevs").val();
+            $.get("action/Cmd.ashx", { action: 1, cmdType: cmdtype, cmdByte: cmdbyte, cmdParam: params,dev:devId }, function(data) {
+                var json = eval("(" + data + ")");
+                if (json.success) {
+                    alert("任务流水号:" + json.data[0].task);
+                    SetTimeout(json.data[0].task);
+                }
+                else {
+                    alert(json.error);
+                }
+            });
+        }
+        var timeID;
+        function SetTimeout(taskId) {
+            timeID = setTimeout('ResponseCmd()', 5000, taskId);
+        }
+
+        function ResponseCmd(taskId) {
+            $.get("action/Cmd.ashx", { action: 2, task: taskId }, function(data) {
+                var json = eval("(" + data + ")");
+                if (json.success) {
+                    alert("任务流水号:" + taskId + "成功");
+                    clearTimeout(timeID);
+                }
+                else {
+                    alert(json.error);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body style="margin:0px">
+    <div>
+         <select id="selDevs">
+                <option value="2" selected>1号设备</option>
+            </select>
+        <input id="btnReadCMP" type="button" value="读取CMP"/>
+    </div>
+</body>
+</html>

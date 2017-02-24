@@ -1,0 +1,164 @@
+body {
+    margin: 0px;
+    color: #000; 
+    font-size: 12px; 
+    line-height: 150%; 
+    font-family: "Arial", "宋体", "sans-serif";
+    background-color:#FFFFFF;
+}
+#leftMenu{background: url("/images/menu_bg.jpg") repeat-y; width:170px;height:400px}
+p {margin: 0px}
+table {
+    font-size: 12px; 
+    font-family: "Arial", "宋体", "sans-serif"
+}
+
+table.dtable {
+    font-size: 12px; 
+    line-height: 150%; 
+    font-family: "Arial", "宋体", "sans-serif";
+    background-color:#FFFFFF;
+    width:100%
+}
+td.tleft{
+    background-image:url(/images/tab_03.gif);
+    width:12px;
+    height:30px;
+}
+td.mleft{
+    background-image:url(/images/tab_12.gif);
+    width:8px;
+}
+td.bleft{
+    background-image:url(/images/tab_18.gif);
+    width:12px;
+    height:35px;
+}
+td.tright{
+    background-image:url(/images/tab_07.gif);
+    width:16px;
+    height:30px;
+}
+td.mright{
+    background-image:url(/images/tab_15.gif);
+    width:8px;
+}
+td.bright{
+    background-image:url(/images/tab_20.gif);
+    width:16px;
+    height:35px;
+}
+td.dtd{
+    background-color:#FFFFFF;
+    background-image:url(/images/td.gif);
+    height:22px;
+    text-align:center;
+}
+table a{ text-align:left}
+input {font-size: 12px; font-family: "Arial", "宋体", "sans-serif"}
+select {font-size: 12px;font-family: "Arial", "宋体", "sans-serif"}
+TEXTAREA {font-size: 12px; font-family: "Arial", "宋体", "sans-serif"}
+a:link {color: #036; text-decoration: none}
+a:visited {color: #036; text-decoration: none}
+a:hover {color: #f60; text-decoration: underline}
+a.menuChild:link {color: #036; text-decoration: none}
+a.menuChild:visited {color: #036; text-decoration: none}
+a.menuChild:hover {color: #f60; text-decoration: underline}
+a.menuParent:link {color: #000; text-decoration: none}
+a.menuParent:visited {color: #000; text-decoration: none}
+a.menuParent:hover {color: #f60; text-decoration: none}
+.STYLE1 {font-size: 12px;}
+.STYLE3 {font-size: 12px; font-weight: bold;}
+.STYLE7 {height:36px;}
+.STYLE8 {
+    font-size: 12px; 
+    font-weight:bold;  
+    height:36px; 
+    background-color:#d3eaef;
+}
+.STYLE9 {
+    font-size: 12px; 
+    font-weight:bold;  
+    height:25px; 
+    background-color:#d3eaef;
+    text-align:left;
+}
+.STYLE10 {
+    text-align:center;
+    font-size: 12px; 
+    font-weight:bold;  
+    height:25px; 
+    background-color:#d3eaef;
+}
+.STYLE11 {
+    text-align:right;
+    font-size: 12px; 
+    font-weight:bold;  
+    height:25px; 
+    background-color:#d3eaef;
+}
+.reg_title{color: #000000; font-size: 12px; font-weight:bold;}
+.STYLE19 {
+    color: #344b50;
+    font-size: 12px;
+    height:30px;
+    background-color :#FFFFFF;
+    text-align:center;
+}
+.STYLE18 {
+    color: #344b50;
+    font-size: 12px;
+    height:30px;
+    background-color :#FFFFFF;
+    text-align:left;
+}
+.STYLE20 {
+    color: #344b50;
+    font-size: 12px;
+    height:30px;
+    background-color :#FFFFFF;
+    text-align:right;
+}
+.STYLE21 {
+    font-size: 12px;
+    color: #3b6375;
+}
+.search_b {
+    background: url("/images/search.gif") repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 25px;
+    width: 61px;
+}
+.delete_b {
+    background: url("/images/delete_b.gif") repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 25px;
+    width: 61px;
+}
+.return {
+    background: url("/images/return_b.gif") repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 25px;
+    width: 61px;
+}
+.button-go {
+    background: url("/images/main-right-button-go.gif") repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 13px;
+    width: 35px;
+}
+.ddlist {
+    font-size: 12px;
+    text-align:center;
+    height:20px;
+    line-height:20px;
+}
+.button {
+    background: url("/images/button_bg_6.gif") repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #000000;
+    font-size: 12px;
+    height: 23px;
+    text-align: center;
+    width: 54px;
+}

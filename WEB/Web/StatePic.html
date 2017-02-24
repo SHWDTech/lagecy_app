@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>查看现场照片</title>
+
+<script type="text/javascript" src="CsiteReal.action_files/jquery-1.js"></script>
+<script src="CsiteReal.action_files/jquery-ui-1.js" type="text/javascript" charset="utf-8"></script>
+<script src="CsiteReal.action_files/cSitePhotos.js" type="text/javascript" charset="utf-8"></script>
+
+<link href="CsiteReal.action_files/default.css" rel="stylesheet" type="text/css">
+
+<link href="CsiteReal.action_files/extra.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div class="header">
+  <span class="user">欢迎使用本系统</span>
+  <span style="display:none" id="csiteID">191</span>
+</div>
+<div class="body">
+  <div class="location">
+    <span>
+      <a href="javascript:history.back()">« 返回</a><em>/</em><a href="http://112.65.239.89:8080/HBJ2012/">退出</a>
+    </span>
+    <div>
+      
+        <a href="http://112.65.239.89:8080/HBJ2012/">上海</a>
+      
+      
+      <em>-</em><a href="http://112.65.239.89:8080/HBJ2012/DistrictHome.action?cityID=9">虹口区</a><em>-</em><a href="http://112.65.239.89:8080/HBJ2012/CsiteDetail.action?csiteID=191&amp;cityID=9">彩虹湾保障性住房基地二期动迁安置房项目</a><em>-</em><a href="">现场图片</a>
+    </div>
+  </div>
+  <div class="photoFrameList">
+    
+    
+    	
+        			<dl class="photoFrame" id="spot1">
+        
+        
+    	
+	      <dt>监测点1 - <em>当前摄像头</em></dt>
+	      <dt id="photoTime" class="photoTime">拍摄时间：2015-02-28 13:27:22</dt>
+	      <dd>
+	        <div class="photo"><img id="photo" src="CsiteReal.action_files/0228132722.jpg"></div>
+	        <div class="control">
+	          <!--<p class="devCode">12080023</p>-->
+			  <!--<p>http://112.65.239.89:80/HBJ2012_PhotoBase//12080023/2015/0228132722.jpg</p> -->
+			  <!-- <p style="display:none" class="devCode"></p>-->
+			  <input id="dev_code" name="dev_code" value="12080023" style="display:none" type="text">
+	          <input class="controlUp" value="上移" type="button">
+	          <input class="controlDown" value="下移" type="button">
+	          <input class="controlLeft" value="左移" type="button">
+	          <input class="controlRight" value="右移" type="button">
+	          <input class="controlCapture" value="拍照" type="button">
+	          <input class="controlZoomOut" value="+放大" type="button">
+	          <input class="controlZoomIn" value="-缩小" type="button">
+	          <input class="controlDefault2" value="跳至预置" type="button">
+	          <!--<input type="button" class="controlSave" value="设为预置" />-->
+	          <select id="controlPreset">
+		      	<option selected="selected" value="0">1号预置位</option>
+		      	<option value="1">2号预置位</option>
+		      	<option value="2">3号预置位</option>
+		      	<option value="3">4号预置位</option>
+		      	<option value="4">5号预置位</option>
+		      	<option value="5">6号预置位</option>
+		      	<!-- <option value="6">7号预置位</option> -->
+		      	<!-- <option value="7">8号预置位</option> -->
+			  </select>
+	        </div>
+	      </dd>
+    </dl>
+    
+    
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="footer">
+  <a href="#">关于我们</a>
+  <span>版权所有 2012</span>
+</div>
+
+<!-- jQuery 遮罩层 -->
+<div id="fullbg"></div>
+<!-- end jQuery 遮罩层 -->
+<!-- 对话框 -->
+<div id="dialog">
+  <p>正在处理请求，请稍等...</p>
+  <img src="CsiteReal.action_files/ajaxLoader.gif">
+</div>
+<!-- jQuery 遮罩层上方的对话框 -->
+
+
+
+</body></html>

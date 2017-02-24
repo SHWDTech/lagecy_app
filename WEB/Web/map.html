@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台管理工作平台</title>
+    <script type="text/javascript" src="js/zTree/js/jquery-1.4.4.min.js"></script>
+    <style type="text/css">
+    html{height:100%}
+    body{height:100%;margin:0px;padding:0px;font-size:12px;}
+    #container{width:100%;height:100%;margin:0;}
+    </style>
+    <script type="text/javascript">
+    function map_load() {//异步调用
+        var load = document.createElement("script");
+        load.src = "http://api.map.baidu.com/api?v=1.4&callback=map_init";
+        document.body.appendChild(load);
+    }
+
+    window.onload = map_load;
+    var map = null;
+    var localCtrls = new Array();
+    var ledCtrls = new Array();
+    var icons = new Array();
+    var points = new Array();
+    function map_init() {
+        map = new BMap.Map("container");
+        map.centerAndZoom("上海", 12);
+        map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT }));  //右上角，仅包含平移和缩放按钮
+        map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+        map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+       var iconSize = new BMap.Size(48, 48)
+       icons.push(new BMap.Icon("images/map/gray.png", iconSize));
+       icons.push(new BMap.Icon("images/map/blue.png", iconSize));
+       icons.push(new BMap.Icon("images/map/green.png", iconSize));
+       icons.push(new BMap.Icon("images/map/red.png", iconSize));
+       icons.push(new BMap.Icon("images/map/yellow.png", iconSize));
+   }
+
+   function setMapCenter(nodeId, type) {
+       var len = localCtrls.length;
+       if (len > 0) 
+       {
+           for (var i = 0; i < len; i++) 
+           {
+               if (localCtrls[i].id == parseInt(nodeId)) {
+                   map.panTo(points[i]);
+                   break;
+               } 
+            }
+       }
+       else 
+       {
+           $.get("mapservice.aspx", { action: "center", id: nodeId, type: type }, function(data) {
+               if (data == "err") { alert("暂时无法查询到标注信息"); return; }
+               var arr = data.split(';');
+               var point = new BMap.Point(Number(arr[0]), Number(arr[1]));
+               map.panTo(point);
+           });
+       }  
+   }
+
+   function setMapCenter2(nodeId, type) {
+       var len = ledCtrls.length;
+       if (len > 0) {
+//           for (var i = 0; i < len; i++) {
+//               if (ledCtrls[i].id == parseInt(nodeId)) {
+//                   map.panTo(points[i]);
+//                   break;
+//               }
+//           }
+           map.setViewport(points);
+       }
+       else {
+           addLEDCtrls(nodeId, type);
+       }
+   }
+   function addLocalCtrls(nodeId, type) {
+       $.get("mapservice.aspx", { action: "getMarks", id: nodeId, type: type }, function(data) {
+           if (data == "err") { alert("暂时无法查询到标注信息"); return; }
+           map.clearOverlays();
+           localCtrls.length = 0; ledCtrls.length = 0; points.length = 0;
+           localCtrls = eval(data); var len = localCtrls.length;
+           for (var i = 0; i < len; i++) {
+               points.push(new BMap.Point(Number(localCtrls[i].Long), Number(localCtrls[i].Lant)));
+               addPoint(localCtrls[i]);
+           } //闭包解决
+
+           map.setViewport(points);
+       });
+   }
+   
+   function addLEDCtrls(nodeId, type) {
+       $.get("mapservice.aspx", {action: "getMarks", id: nodeId, type: type}, function(data) {
+       if (data == "err") { alert("暂时无法查询到标注信息"); return; }
+       map.clearOverlays(); ledCtrls.length = 0;
+       ledCtrls = eval(data); var len = ledCtrls.length; points.length = 0;
+       for (var i = 0; i < len; i++) {
+           points.push(new BMap.Point(Number(ledCtrls[i].Long), Number(ledCtrls[i].Lant)));
+           addPoint2(ledCtrls[i]); } //闭包解决
+       });
+
+       map.setViewport(points);
+   }
+   function addPoint(obj) {
+       var point = new BMap.Point(Number(obj.Long), Number(obj.Lant));
+       var marker = new BMap.Marker(point);
+       map.addOverlay(marker);
+       var label = new BMap.Label(obj.name, { offset: new BMap.Size(20, 0) });
+       marker.setLabel(label);
+//       var info = createInfoWin1(obj);
+//       marker.addEventListener("click", function() { this.openInfoWindow(info); });
+   }
+   function addPoint2(obj) {
+       var point = new BMap.Point(Number(obj.Long), Number(obj.Lant));
+       var marker = new BMap.Marker(point, { icon: icons[obj.status] });
+       map.addOverlay(marker);
+       var label = new BMap.Label(obj.name, { offset: new BMap.Size(40, 0) });
+       marker.setLabel(label);
+//       var info = createInfoWin2(obj);
+//       marker.addEventListener("click", function() { this.openInfoWindow(info); });
+   }
+    </script>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>

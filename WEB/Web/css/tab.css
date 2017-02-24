@@ -1,0 +1,45 @@
+/* 标准盒模型 */
+.ttl {
+	height:18px;
+}
+.ctt {
+	padding:6px;
+	clear:both;
+	border-top:1px solid #CCCCCC;
+}
+.w936 {
+	margin:2px auto;
+	clear:both;
+	width:100%;/*滑动门的宽度*/	
+}
+/* TAB 切换效果 */
+
+.tb_ ul {
+	margin:0 auto;
+}
+.tb_ li {
+	float:left;
+	height: 24px;
+	line-height:24px;
+	text-align:center;
+	width: 94px;
+	cursor:pointer;
+}
+/* 控制显示与隐藏css类 */
+.normaltab {
+	background: #E8EBF0;
+    color: #666;
+    font-weight: normal;
+    margin:0px 4px 0px 4px;
+    text-decoration: none;
+}
+.hovertab {
+   background: #4F94CD;
+   color: #FFFFFF;
+   font-weight:bold
+}
+ul {
+	list-style-type:none;
+	margin:0px;
+}
+#iframeResult{width:100%; height:350px;}

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理工作平台</title>
+<style type="text/css">
+#rbbox{position:absolute;right:0;bottom:0;width:300px;height:0px;overflow:hidden} 
+.button{display:inline;float:right;font-size:12px;cursor:pointer} 
+</style>
+<script type="text/javascript">
+var isie6 = window.XMLHttpRequest?false:true;
+window.onload = function(){
+var box = document.getElementById('rbbox');
+if (!isie6) box.style.position = 'fixed';
+}
+</script>
+
+</head>
+<body style="margin: 0;padding: 0;">
+ <div id="topFrame" style="width: 100%; height: 127px;">
+    <iframe src="top.html" style="height:100%;width:100%" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
+ </div>
+  <div id="mainFrame" style="width: 100%; height: 500px;">
+    <iframe src="center.html" style="height:100%;width:100%" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
+ </div>
+<div id="bottomFrame" style="width: 100%; height: 13px;">
+<iframe src="down.html" style="height:100%;width:100%" frameborder="0" marginwidth="0" marginheight="0" ></iframe>
+</div>  
+   <div id="rbbox"><a class="button" onclick="closeBox()">关闭</a>
+   <div style="background:green;">检测到报警<br /><a href="#" target="_blank">详情</a></div>
+   </div>
+</body>
+<script language="javascript" type="text/javascript">
+    window.onload = function() { showBox(); setTimeout("closeBox()", 5000) }
+    function showBox(o) {
+        if (o == undefined) o = document.getElementById("rbbox");
+        o.style.height = o.clientHeight + 2 + "px";
+        if (o.clientHeight < 50) setTimeout(function() { showBox(o) }, 50);
+    }
+    function closeBox() { document.getElementById("rbbox").style.display = "none"; } 
+</script> 
+</html>

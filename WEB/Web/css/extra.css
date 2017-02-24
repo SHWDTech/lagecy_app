@@ -1,0 +1,246 @@
+@charset "utf-8";
+/* CSS Document */
+
+/**************for photo page ********/
+#fullbg {
+    background-color: Gray;
+    left: 0;
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    z-index: 3;
+    filter: alpha(opacity=50); /* IE6 */
+    -moz-opacity: 0.5; /* Mozilla */
+    -khtml-opacity: 0.5; /* Safari */
+}
+
+#dialog {
+    background-color: #FFF;
+    border: 2px solid #D7E1E1;
+    display: none;
+    height: 120px;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+    padding: 12px;
+    position: fixed !important; /* 浮动对话框 */
+    position: absolute;
+    top: 50%;
+    width: 140px;
+    z-index: 5;
+}
+
+    #dialog p {
+        margin: 0 0 12px;
+    }
+
+        #dialog p.close {
+            text-align: right;
+        }
+
+    #dialog img {
+        width: 140px;
+        height: 90px;
+    }
+
+/****for refresh button******************/
+
+.btn_refresh,
+.btn_refresh:visited {
+    background: url(../images/main.png) 0 -120px;
+    line-height: 25px;
+    width: 25px;
+    display: inline-block;
+}
+
+    .btn_refresh:hover {
+        background: url(../images/main.png) 0 -145px;
+        text-decoration: none;
+    }
+
+/********for fromTime * tillTime input elements********/
+
+
+/*****the chart may scroll********/
+.handle_horizonal__scroll {
+    width: 690px;
+    height: 405px;
+    overflow: auto;
+}
+
+.handle_horizonal__scroll2 {
+    width: 690px;
+    overflow: auto;
+}
+
+.photoFrame {
+    margin-left: 20px;
+}
+
+.photo {
+    width: 400px;
+    height: 300px;
+}
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+    }
+
+.controlLeft {
+    left: 6px;
+    top: 59px;
+}
+
+.controlRight {
+    left: 148px;
+    top: 59px;
+}
+
+.controlUpLeft {
+    left: 6px;
+    top: 27px;
+}
+
+.controlUp {
+    left: 77px;
+    top: 27px;
+}
+
+.controlUpRight {
+    left: 148px;
+    top: 27px;
+}
+
+.controlDown {
+    left: 77px;
+    top: 92px;
+}
+
+.controlDownLeft {
+    left: 6px;
+    top: 92px;
+}
+
+.controlDownRight {
+    left: 148px;
+    top: 92px;
+}
+
+.controlCapture {
+    font-weight: bold;
+    left: 77px;
+    top: 59px;
+}
+
+.controlZoomIn {
+    width: 60px;
+    left: 234px;
+    top: 42px;
+}
+
+.controlZoomOut {
+    width: 60px;
+    left: 234px;
+    top: 78px;
+}
+
+.controlDefault {
+    width: 70px;
+    left: 321px;
+    top: 53px;
+}
+
+.controlSave {
+    width: 70px;
+    left: 320px;
+    top: 78px;
+}
+
+.controlLeft2 {
+    width: 60px;
+    left: 6px;
+    top: 59px;
+}
+
+.controlRight2 {
+    width: 60px;
+    left: 148px;
+    top: 59px;
+}
+
+.controlUp2 {
+    width: 60px;
+    left: 77px;
+    top: 27px;
+}
+
+.controlDown2 {
+    width: 60px;
+    left: 77px;
+    top: 92px;
+}
+
+.controlCapture2 {
+    font-weight: bold;
+    width: 60px;
+    left: 77px;
+    top: 59px;
+}
+
+.controlZoomIn2 {
+    width: 60px;
+    left: 234px;
+    top: 42px;
+}
+
+.controlZoomOut2 {
+    width: 60px;
+    left: 234px;
+    top: 78px;
+}
+
+.controlDefault2 {
+    left: 320px;
+    width: 90px;
+    top: 59px;
+}
+
+.controlSave2 {
+    left: 320px;
+    width: 90px;
+    top: 92px;
+}
+
+#controlPreset {
+    position: absolute;
+    left: 240px;
+    top: 27px;
+}
+
+.control {
+    height: 140px;
+    position: relative;
+}
+
+    .control input {
+        position: absolute;
+        line-height: 23px;
+        height: 23px;
+        font-size: 14px;
+        width: 60px;
+    }
+
+.photoDev {
+    color: #7FBD33;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 34px;
+    margin: 0 0 5px;
+}
+
+#photoTime {
+    color: #7E8B6D;
+    font-size: 14px;
+    line-height: normal;
+    margin: 0 0 10px;
+}

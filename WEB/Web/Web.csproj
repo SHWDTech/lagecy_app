@@ -1,0 +1,1334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C259CD24-C060-46D5-A2B2-8ADB3CBBCD33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\..\..\..\ProgramLibrary\DotNET\EPPlus 4.0.2\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=0.5.2.17984, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\CameraAdd.aspx" />
+    <Content Include="admin\Cameras.aspx" />
+    <Content Include="admin\ChangePwd.aspx" />
+    <Content Include="admin\Config.aspx" />
+    <Content Include="admin\DevEdit.aspx" />
+    <Content Include="admin\DeviceConfigAll.aspx" />
+    <Content Include="admin\DeviceConfigSeparate.aspx" />
+    <Content Include="AlarmDistrict.aspx" />
+    <Content Include="AlarmRank.aspx" />
+    <Content Include="css\extra.css" />
+    <Content Include="EChartsTest.aspx" />
+    <Content Include="HistoryDataQuery.aspx" />
+    <Content Include="HistoryPhotos.aspx" />
+    <Content Include="images\add.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\map\blue.png" />
+    <Content Include="images\map\gray.png" />
+    <Content Include="images\map\green.png" />
+    <Content Include="images\map\red.png" />
+    <Content Include="images\map\yellow.png" />
+    <Content Include="js\demojs.js" />
+    <Content Include="js\FABridge.js" />
+    <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\SitePhoto.js" />
+    <Content Include="js\swfobject.js" />
+    <Content Include="mapservice.aspx" />
+    <Content Include="center.html" />
+    <Content Include="css\right.css" />
+    <Content Include="css\style.css" />
+    <Content Include="down.html" />
+    <Content Include="images\add.gif" />
+    <Content Include="images\back.gif" />
+    <Content Include="images\checkcode.png" />
+    <Content Include="images\cz.gif" />
+    <Content Include="images\del.gif" />
+    <Content Include="images\dl.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\first.gif" />
+    <Content Include="images\go.gif" />
+    <Content Include="images\last.gif" />
+    <Content Include="images\login_03.gif" />
+    <Content Include="images\login_04.gif" />
+    <Content Include="images\login_06.gif" />
+    <Content Include="images\login_07.gif" />
+    <Content Include="images\login_08.gif" />
+    <Content Include="images\login_09.gif" />
+    <Content Include="images\login_10.gif" />
+    <Content Include="images\login_11.gif" />
+    <Content Include="images\main_01.gif" />
+    <Content Include="images\main_03.gif" />
+    <Content Include="images\main_05.gif" />
+    <Content Include="images\main_06.gif" />
+    <Content Include="images\main_07.gif" />
+    <Content Include="images\main_10.gif" />
+    <Content Include="images\main_11.gif" />
+    <Content Include="images\main_13.gif" />
+    <Content Include="images\main_15.gif" />
+    <Content Include="images\main_17.gif" />
+    <Content Include="images\main_19.gif" />
+    <Content Include="images\main_21.gif" />
+    <Content Include="images\main_28.gif" />
+    <Content Include="images\main_29.gif" />
+    <Content Include="images\main_30.gif" />
+    <Content Include="images\main_31.gif" />
+    <Content Include="images\main_32.gif" />
+    <Content Include="images\main_34.gif" />
+    <Content Include="images\main_35.gif" />
+    <Content Include="images\main_43.gif" />
+    <Content Include="images\main_69.gif" />
+    <Content Include="images\main_71.gif" />
+    <Content Include="images\main_72.gif" />
+    <Content Include="images\main_74.gif" />
+    <Content Include="images\mapinfo_4.png" />
+    <Content Include="images\nav_bj.gif" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\page_go.gif" />
+    <Content Include="images\pass.gif" />
+    <Content Include="images\quit.gif" />
+    <Content Include="images\shadow_bg.jpg" />
+    <Content Include="images\sj.gif" />
+    <Content Include="images\tab_bg.gif" />
+    <Content Include="images\tb.gif" />
+    <Content Include="images\title_bg.jpg" />
+    <Content Include="images\treeico\close.gif" />
+    <Content Include="images\treeico\empty.gif" />
+    <Content Include="images\treeico\folder.gif" />
+    <Content Include="images\treeico\join.gif" />
+    <Content Include="images\treeico\joinbottom.gif" />
+    <Content Include="images\treeico\line.gif" />
+    <Content Include="images\treeico\minus.gif" />
+    <Content Include="images\treeico\minus_bottom.gif" />
+    <Content Include="images\treeico\minus_nolines.gif" />
+    <Content Include="images\treeico\open.gif" />
+    <Content Include="images\treeico\plus.gif" />
+    <Content Include="images\treeico\plus_bottom.gif" />
+    <Content Include="images\treeico\plus_nolines.gif" />
+    <Content Include="images\user.gif" />
+    <Content Include="js\chili-1.7.pack.js" />
+    <Content Include="js\comon.js" />
+    <Content Include="js\zTree\api\apiCss\api.js" />
+    <Content Include="js\zTree\api\apiCss\common.css" />
+    <Content Include="js\zTree\api\apiCss\common_ie6.css" />
+    <Content Include="js\zTree\api\apiCss\img\apiMenu.gif" />
+    <Content Include="js\zTree\api\apiCss\img\apiMenu.png" />
+    <Content Include="js\zTree\api\apiCss\img\background.jpg" />
+    <Content Include="js\zTree\api\apiCss\img\chinese.png" />
+    <Content Include="js\zTree\api\apiCss\img\close.png" />
+    <Content Include="js\zTree\api\apiCss\img\contact-bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\english.png" />
+    <Content Include="js\zTree\api\apiCss\img\header-bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\lightbulb.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_arrow.gif" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_arrow.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_close_IE6.gif" />
+    <Content Include="js\zTree\api\apiCss\img\zTreeStandard.gif" />
+    <Content Include="js\zTree\api\apiCss\img\zTreeStandard.png" />
+    <Content Include="js\zTree\api\apiCss\jquery-1.6.2.min.js" />
+    <Content Include="js\zTree\api\apiCss\jquery.ztree.core-3.5.js" />
+    <Content Include="js\zTree\api\apiCss\zTreeStyleForApi.css" />
+    <Content Include="js\zTree\api\API_cn.html" />
+    <Content Include="js\zTree\api\API_en.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.destroy.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.init.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree._z.html" />
+    <Content Include="js\zTree\api\cn\setting.async.autoParam.html" />
+    <Content Include="js\zTree\api\cn\setting.async.contentType.html" />
+    <Content Include="js\zTree\api\cn\setting.async.dataFilter.html" />
+    <Content Include="js\zTree\api\cn\setting.async.dataType.html" />
+    <Content Include="js\zTree\api\cn\setting.async.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.async.otherParam.html" />
+    <Content Include="js\zTree\api\cn\setting.async.type.html" />
+    <Content Include="js\zTree\api\cn\setting.async.url.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onCheck.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDrag.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDrop.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRemove.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRename.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree\api\cn\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkboxType.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkStyle.html" />
+    <Content Include="js\zTree\api\cn\setting.check.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree\api\cn\setting.check.radioType.html" />
+    <Content Include="js\zTree\api\cn\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree\api\cn\setting.data.keep.parent.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.checked.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.children.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.name.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.title.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.url.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.next.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree\api\cn\setting.treeId.html" />
+    <Content Include="js\zTree\api\cn\setting.treeObj.html" />
+    <Content Include="js\zTree\api\cn\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree\api\cn\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree\api\cn\setting.view.fontCss.html" />
+    <Content Include="js\zTree\api\cn\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree\api\cn\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showIcon.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showLine.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree\api\cn\treeNode.checked.html" />
+    <Content Include="js\zTree\api\cn\treeNode.checkedOld.html" />
+    <Content Include="js\zTree\api\cn\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree\api\cn\treeNode.check_Focus.html" />
+    <Content Include="js\zTree\api\cn\treeNode.children.html" />
+    <Content Include="js\zTree\api\cn\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree\api\cn\treeNode.click.html" />
+    <Content Include="js\zTree\api\cn\treeNode.diy.html" />
+    <Content Include="js\zTree\api\cn\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getNextNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getParentNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getPreNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.halfCheck.html" />
+    <Content Include="js\zTree\api\cn\treeNode.icon.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconClose.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconOpen.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconSkin.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isHidden.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isHover.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isLastNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isParent.html" />
+    <Content Include="js\zTree\api\cn\treeNode.level.html" />
+    <Content Include="js\zTree\api\cn\treeNode.name.html" />
+    <Content Include="js\zTree\api\cn\treeNode.nocheck.html" />
+    <Content Include="js\zTree\api\cn\treeNode.open.html" />
+    <Content Include="js\zTree\api\cn\treeNode.parentTId.html" />
+    <Content Include="js\zTree\api\cn\treeNode.target.html" />
+    <Content Include="js\zTree\api\cn\treeNode.tId.html" />
+    <Content Include="js\zTree\api\cn\treeNode.url.html" />
+    <Content Include="js\zTree\api\cn\treeNode.zAsync.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.destroy.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.editName.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.refresh.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setting.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.showNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.destroy.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.init.html" />
+    <Content Include="js\zTree\api\en\fn.zTree._z.html" />
+    <Content Include="js\zTree\api\en\setting.async.autoParam.html" />
+    <Content Include="js\zTree\api\en\setting.async.contentType.html" />
+    <Content Include="js\zTree\api\en\setting.async.dataFilter.html" />
+    <Content Include="js\zTree\api\en\setting.async.dataType.html" />
+    <Content Include="js\zTree\api\en\setting.async.enable.html" />
+    <Content Include="js\zTree\api\en\setting.async.otherParam.html" />
+    <Content Include="js\zTree\api\en\setting.async.type.html" />
+    <Content Include="js\zTree\api\en\setting.async.url.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onCheck.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDrag.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDrop.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onExpand.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRemove.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRename.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree\api\en\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkboxType.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkStyle.html" />
+    <Content Include="js\zTree\api\en\setting.check.enable.html" />
+    <Content Include="js\zTree\api\en\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree\api\en\setting.check.radioType.html" />
+    <Content Include="js\zTree\api\en\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree\api\en\setting.data.keep.parent.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.checked.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.children.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.name.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.title.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.url.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.next.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree\api\en\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree\api\en\setting.edit.enable.html" />
+    <Content Include="js\zTree\api\en\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree\api\en\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree\api\en\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree\api\en\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree\api\en\setting.treeId.html" />
+    <Content Include="js\zTree\api\en\setting.treeObj.html" />
+    <Content Include="js\zTree\api\en\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree\api\en\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree\api\en\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree\api\en\setting.view.fontCss.html" />
+    <Content Include="js\zTree\api\en\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree\api\en\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree\api\en\setting.view.showIcon.html" />
+    <Content Include="js\zTree\api\en\setting.view.showLine.html" />
+    <Content Include="js\zTree\api\en\setting.view.showTitle.html" />
+    <Content Include="js\zTree\api\en\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree\api\en\treeNode.checked.html" />
+    <Content Include="js\zTree\api\en\treeNode.checkedOld.html" />
+    <Content Include="js\zTree\api\en\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree\api\en\treeNode.check_Focus.html" />
+    <Content Include="js\zTree\api\en\treeNode.children.html" />
+    <Content Include="js\zTree\api\en\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree\api\en\treeNode.click.html" />
+    <Content Include="js\zTree\api\en\treeNode.diy.html" />
+    <Content Include="js\zTree\api\en\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree\api\en\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree\api\en\treeNode.getNextNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.getParentNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.getPreNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.halfCheck.html" />
+    <Content Include="js\zTree\api\en\treeNode.icon.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconClose.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconOpen.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconSkin.html" />
+    <Content Include="js\zTree\api\en\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree\api\en\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.isHidden.html" />
+    <Content Include="js\zTree\api\en\treeNode.isHover.html" />
+    <Content Include="js\zTree\api\en\treeNode.isLastNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.isParent.html" />
+    <Content Include="js\zTree\api\en\treeNode.level.html" />
+    <Content Include="js\zTree\api\en\treeNode.name.html" />
+    <Content Include="js\zTree\api\en\treeNode.nocheck.html" />
+    <Content Include="js\zTree\api\en\treeNode.open.html" />
+    <Content Include="js\zTree\api\en\treeNode.parentTId.html" />
+    <Content Include="js\zTree\api\en\treeNode.target.html" />
+    <Content Include="js\zTree\api\en\treeNode.tId.html" />
+    <Content Include="js\zTree\api\en\treeNode.url.html" />
+    <Content Include="js\zTree\api\en\treeNode.zAsync.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.destroy.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.editName.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.refresh.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setting.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.showNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree\css\demo.css" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="js\zTree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="js\zTree\demo\cn\bigdata\common.html" />
+    <Content Include="js\zTree\demo\cn\bigdata\diy_async.html" />
+    <Content Include="js\zTree\demo\cn\bigdata\page.html" />
+    <Content Include="js\zTree\demo\cn\core\async.html" />
+    <Content Include="js\zTree\demo\cn\core\async_fun.html" />
+    <Content Include="js\zTree\demo\cn\core\click.html" />
+    <Content Include="js\zTree\demo\cn\core\custom_font.html" />
+    <Content Include="js\zTree\demo\cn\core\custom_icon.html" />
+    <Content Include="js\zTree\demo\cn\core\custom_iconSkin.html" />
+    <Content Include="js\zTree\demo\cn\core\expand.html" />
+    <Content Include="js\zTree\demo\cn\core\noicon.html" />
+    <Content Include="js\zTree\demo\cn\core\noline.html" />
+    <Content Include="js\zTree\demo\cn\core\otherMouse.html" />
+    <Content Include="js\zTree\demo\cn\core\searchNodes.html" />
+    <Content Include="js\zTree\demo\cn\core\simpleData.html" />
+    <Content Include="js\zTree\demo\cn\core\standardData.html" />
+    <Content Include="js\zTree\demo\cn\core\update_fun.html" />
+    <Content Include="js\zTree\demo\cn\core\url.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox_chkDisabled.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox_count.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox_fun.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox_halfCheck.html" />
+    <Content Include="js\zTree\demo\cn\excheck\checkbox_nocheck.html" />
+    <Content Include="js\zTree\demo\cn\excheck\radio.html" />
+    <Content Include="js\zTree\demo\cn\excheck\radio_chkDisabled.html" />
+    <Content Include="js\zTree\demo\cn\excheck\radio_fun.html" />
+    <Content Include="js\zTree\demo\cn\excheck\radio_halfCheck.html" />
+    <Content Include="js\zTree\demo\cn\excheck\radio_nocheck.html" />
+    <Content Include="js\zTree\demo\cn\exedit\async_edit.html" />
+    <Content Include="js\zTree\demo\cn\exedit\drag.html" />
+    <Content Include="js\zTree\demo\cn\exedit\drag_fun.html" />
+    <Content Include="js\zTree\demo\cn\exedit\drag_super.html" />
+    <Content Include="js\zTree\demo\cn\exedit\edit.html" />
+    <Content Include="js\zTree\demo\cn\exedit\edit_fun.html" />
+    <Content Include="js\zTree\demo\cn\exedit\edit_super.html" />
+    <Content Include="js\zTree\demo\cn\exedit\multiTree.html" />
+    <Content Include="js\zTree\demo\cn\exhide\checkbox.html" />
+    <Content Include="js\zTree\demo\cn\exhide\common.html" />
+    <Content Include="js\zTree\demo\cn\exhide\radio.html" />
+    <Content Include="js\zTree\demo\cn\index.html" />
+    <Content Include="js\zTree\demo\cn\super\asyncForAll.html" />
+    <Content Include="js\zTree\demo\cn\super\checkbox_radio.html" />
+    <Content Include="js\zTree\demo\cn\super\diydom.html" />
+    <Content Include="js\zTree\demo\cn\super\dragWithOther.html" />
+    <Content Include="js\zTree\demo\cn\super\left_menu.html" />
+    <Content Include="js\zTree\demo\cn\super\left_menuForOutLook.gif" />
+    <Content Include="js\zTree\demo\cn\super\left_menuForOutLook.html" />
+    <Content Include="js\zTree\demo\cn\super\left_menuForOutLook.png" />
+    <Content Include="js\zTree\demo\cn\super\oneclick.html" />
+    <Content Include="js\zTree\demo\cn\super\oneroot.html" />
+    <Content Include="js\zTree\demo\cn\super\rightClickMenu.html" />
+    <Content Include="js\zTree\demo\cn\super\select_menu.html" />
+    <Content Include="js\zTree\demo\cn\super\select_menu_checkbox.html" />
+    <Content Include="js\zTree\demo\cn\super\select_menu_radio.html" />
+    <Content Include="js\zTree\demo\cn\super\singlepath.html" />
+    <Content Include="js\zTree\demo\en\bigdata\common.html" />
+    <Content Include="js\zTree\demo\en\bigdata\diy_async.html" />
+    <Content Include="js\zTree\demo\en\bigdata\page.html" />
+    <Content Include="js\zTree\demo\en\core\async.html" />
+    <Content Include="js\zTree\demo\en\core\async_fun.html" />
+    <Content Include="js\zTree\demo\en\core\click.html" />
+    <Content Include="js\zTree\demo\en\core\custom_font.html" />
+    <Content Include="js\zTree\demo\en\core\custom_icon.html" />
+    <Content Include="js\zTree\demo\en\core\custom_iconSkin.html" />
+    <Content Include="js\zTree\demo\en\core\expand.html" />
+    <Content Include="js\zTree\demo\en\core\noicon.html" />
+    <Content Include="js\zTree\demo\en\core\noline.html" />
+    <Content Include="js\zTree\demo\en\core\otherMouse.html" />
+    <Content Include="js\zTree\demo\en\core\searchNodes.html" />
+    <Content Include="js\zTree\demo\en\core\simpleData.html" />
+    <Content Include="js\zTree\demo\en\core\standardData.html" />
+    <Content Include="js\zTree\demo\en\core\update_fun.html" />
+    <Content Include="js\zTree\demo\en\core\url.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox_chkDisabled.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox_count.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox_fun.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox_halfCheck.html" />
+    <Content Include="js\zTree\demo\en\excheck\checkbox_nocheck.html" />
+    <Content Include="js\zTree\demo\en\excheck\radio.html" />
+    <Content Include="js\zTree\demo\en\excheck\radio_chkDisabled.html" />
+    <Content Include="js\zTree\demo\en\excheck\radio_fun.html" />
+    <Content Include="js\zTree\demo\en\excheck\radio_halfCheck.html" />
+    <Content Include="js\zTree\demo\en\excheck\radio_nocheck.html" />
+    <Content Include="js\zTree\demo\en\exedit\async_edit.html" />
+    <Content Include="js\zTree\demo\en\exedit\drag.html" />
+    <Content Include="js\zTree\demo\en\exedit\drag_fun.html" />
+    <Content Include="js\zTree\demo\en\exedit\drag_super.html" />
+    <Content Include="js\zTree\demo\en\exedit\edit.html" />
+    <Content Include="js\zTree\demo\en\exedit\edit_fun.html" />
+    <Content Include="js\zTree\demo\en\exedit\edit_super.html" />
+    <Content Include="js\zTree\demo\en\exedit\multiTree.html" />
+    <Content Include="js\zTree\demo\en\exhide\checkbox.html" />
+    <Content Include="js\zTree\demo\en\exhide\common.html" />
+    <Content Include="js\zTree\demo\en\exhide\radio.html" />
+    <Content Include="js\zTree\demo\en\index.html" />
+    <Content Include="js\zTree\demo\en\super\asyncForAll.html" />
+    <Content Include="js\zTree\demo\en\super\checkbox_radio.html" />
+    <Content Include="js\zTree\demo\en\super\diydom.html" />
+    <Content Include="js\zTree\demo\en\super\dragWithOther.html" />
+    <Content Include="js\zTree\demo\en\super\left_menu.html" />
+    <Content Include="js\zTree\demo\en\super\left_menuForOutLook.gif" />
+    <Content Include="js\zTree\demo\en\super\left_menuForOutLook.html" />
+    <Content Include="js\zTree\demo\en\super\left_menuForOutLook.png" />
+    <Content Include="js\zTree\demo\en\super\oneclick.html" />
+    <Content Include="js\zTree\demo\en\super\oneroot.html" />
+    <Content Include="js\zTree\demo\en\super\rightClickMenu.html" />
+    <Content Include="js\zTree\demo\en\super\select_menu.html" />
+    <Content Include="js\zTree\demo\en\super\select_menu_checkbox.html" />
+    <Content Include="js\zTree\demo\en\super\select_menu_radio.html" />
+    <Content Include="js\zTree\demo\en\super\singlepath.html" />
+    <Content Include="js\zTree\js\jquery-1.4.4.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.all-3.5.js" />
+    <Content Include="js\zTree\js\jquery.ztree.all-3.5.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.core-3.5.js" />
+    <Content Include="js\zTree\js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="js\zTree\js\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exedit-3.5.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exhide-3.5.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="js\zTree\log v3.x.txt" />
+    <Content Include="js\jquery.accordion.js" />
+    <Content Include="js\jquery.dimensions.js" />
+    <Content Include="js\jquery.easing.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\js.js" />
+    <Content Include="left.aspx" />
+    <Content Include="left.html" />
+    <Content Include="main.html" />
+    <Content Include="MobilePicView.aspx" />
+    <Content Include="MonthMonitorReport.aspx" />
+    <Content Include="ProjectCompare.aspx" />
+    <Content Include="QuaterMonitorReport.aspx" />
+    <Content Include="right.aspx" />
+    <Content Include="right.html" />
+    <Content Include="Scripts\highcharts\4.2.0\adapters\standalone-framework.js" />
+    <Content Include="Scripts\highcharts\4.2.0\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts-3d.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts-3d.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts-more.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts-more.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts.js" />
+    <Content Include="Scripts\highcharts\4.2.0\highcharts.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\boost.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\boost.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\broken-axis.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\broken-axis.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\canvas-tools.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\data.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\data.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\drilldown.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\drilldown.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\exporting.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\exporting.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\funnel.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\funnel.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\heatmap.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\heatmap.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\no-data-to-display.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\offline-exporting.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\offline-exporting.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\solid-gauge.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\treemap.js" />
+    <Content Include="Scripts\highcharts\4.2.0\modules\treemap.src.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\dark-blue.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\dark-green.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\dark-unica.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\gray.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\grid-light.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\grid.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\sand-signika.js" />
+    <Content Include="Scripts\highcharts\4.2.0\themes\skies.js" />
+    <Content Include="StatePic.html" />
+    <Content Include="StatPic.aspx" />
+    <Content Include="StatPicsView.aspx" />
+    <Content Include="top.aspx" />
+    <Content Include="top.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="admin\User.aspx" />
+    <Content Include="admin\UserAdd.aspx" />
+    <Content Include="admin\UserGroup.aspx" />
+    <Content Include="admin\UserGroupAdd.aspx" />
+    <Content Include="admin\UserInGroup.aspx" />
+    <Content Include="YearMonitorReport.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="action\Alarm.ashx.cs">
+      <DependentUpon>Alarm.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Config.ashx.cs">
+      <DependentUpon>Config.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\ExportChart.ashx.cs">
+      <DependentUpon>ExportChart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Photos.ashx.cs">
+      <DependentUpon>Photos.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Report.ashx.cs">
+      <DependentUpon>Report.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CameraAdd.aspx.cs">
+      <DependentUpon>CameraAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CameraAdd.aspx.designer.cs">
+      <DependentUpon>CameraAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Cameras.aspx.cs">
+      <DependentUpon>Cameras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Cameras.aspx.designer.cs">
+      <DependentUpon>Cameras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ChangePwd.aspx.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ChangePwd.aspx.designer.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Config.aspx.cs">
+      <DependentUpon>Config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Config.aspx.designer.cs">
+      <DependentUpon>Config.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DevEdit.aspx.cs">
+      <DependentUpon>DevEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DevEdit.aspx.designer.cs">
+      <DependentUpon>DevEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DeviceConfigAll.aspx.cs">
+      <DependentUpon>DeviceConfigAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DeviceConfigAll.aspx.designer.cs">
+      <DependentUpon>DeviceConfigAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DeviceConfigSeparate.aspx.cs">
+      <DependentUpon>DeviceConfigSeparate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DeviceConfigSeparate.aspx.designer.cs">
+      <DependentUpon>DeviceConfigSeparate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmDistrict.aspx.cs">
+      <DependentUpon>AlarmDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlarmDistrict.aspx.designer.cs">
+      <DependentUpon>AlarmDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmRank.aspx.cs">
+      <DependentUpon>AlarmRank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlarmRank.aspx.designer.cs">
+      <DependentUpon>AlarmRank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EChartsTest.aspx.cs">
+      <DependentUpon>EChartsTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EChartsTest.aspx.designer.cs">
+      <DependentUpon>EChartsTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExportChart.aspx.cs">
+      <DependentUpon>ExportChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExportChart.aspx.designer.cs">
+      <DependentUpon>ExportChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Stat.ashx.cs">
+      <DependentUpon>Stat.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Map.ashx.cs">
+      <DependentUpon>Map.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Dev.ashx.cs">
+      <DependentUpon>Dev.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\StatisDay.ashx.cs">
+      <DependentUpon>StatisDay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\Cmd.ashx.cs">
+      <DependentUpon>Cmd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\StatisMin.ashx.cs">
+      <DependentUpon>StatisMin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="action\StatisHour.ashx.cs">
+      <DependentUpon>StatisHour.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\StatEdit.aspx.cs">
+      <DependentUpon>StatEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\StatEdit.aspx.designer.cs">
+      <DependentUpon>StatEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Country.cs" />
+    <Compile Include="Common\Stage.cs" />
+    <Compile Include="admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\top.aspx.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\top.aspx.designer.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analysis.aspx.cs">
+      <DependentUpon>Analysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analysis.aspx.designer.cs">
+      <DependentUpon>Analysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePwd.aspx.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePwd.aspx.designer.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chart.aspx.cs">
+      <DependentUpon>Chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chart.aspx.designer.cs">
+      <DependentUpon>Chart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CRC.cs" />
+    <Compile Include="Common\ProtocolCmd.cs" />
+    <Compile Include="Common\ProtocolKey.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\ExceptionSession.cs" />
+    <Compile Include="Common\Page.cs" />
+    <Compile Include="Common\SessionBox.cs" />
+    <Compile Include="Common\UserSession.cs" />
+    <Compile Include="DustAvgRank.aspx.cs">
+      <DependentUpon>DustAvgRank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DustAvgRank.aspx.designer.cs">
+      <DependentUpon>DustAvgRank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryDataQuery.aspx.cs">
+      <DependentUpon>HistoryDataQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoryDataQuery.aspx.designer.cs">
+      <DependentUpon>HistoryDataQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryPhotos.aspx.cs">
+      <DependentUpon>HistoryPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoryPhotos.aspx.designer.cs">
+      <DependentUpon>HistoryPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MobilePicView.aspx.cs">
+      <DependentUpon>MobilePicView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MobilePicView.aspx.designer.cs">
+      <DependentUpon>MobilePicView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MonthMonitorReport.aspx.cs">
+      <DependentUpon>MonthMonitorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonthMonitorReport.aspx.designer.cs">
+      <DependentUpon>MonthMonitorReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectCompare.aspx.cs">
+      <DependentUpon>ProjectCompare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectCompare.aspx.designer.cs">
+      <DependentUpon>ProjectCompare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuaterMonitorReport.aspx.cs">
+      <DependentUpon>QuaterMonitorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuaterMonitorReport.aspx.designer.cs">
+      <DependentUpon>QuaterMonitorReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RealTimeMonitoring.aspx.cs">
+      <DependentUpon>RealTimeMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RealTimeMonitoring.aspx.designer.cs">
+      <DependentUpon>RealTimeMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteList.aspx.cs">
+      <DependentUpon>SiteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteList.aspx.designer.cs">
+      <DependentUpon>SiteList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\StatAdd.aspx.cs">
+      <DependentUpon>StatAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\StatAdd.aspx.designer.cs">
+      <DependentUpon>StatAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Stats.aspx.cs">
+      <DependentUpon>Stats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Stats.aspx.designer.cs">
+      <DependentUpon>Stats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mapservice.aspx.cs">
+      <DependentUpon>mapservice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mapservice.aspx.designer.cs">
+      <DependentUpon>mapservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\JSONHelper.cs" />
+    <Compile Include="left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quit.aspx.cs">
+      <DependentUpon>quit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="quit.aspx.designer.cs">
+      <DependentUpon>quit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="right.aspx.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="right.aspx.designer.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatPic.aspx.cs">
+      <DependentUpon>StatPic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatPic.aspx.designer.cs">
+      <DependentUpon>StatPic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatPicsView.aspx.cs">
+      <DependentUpon>StatPicsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatPicsView.aspx.designer.cs">
+      <DependentUpon>StatPicsView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="top.aspx.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="top.aspx.designer.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserAdd.aspx.cs">
+      <DependentUpon>UserAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserAdd.aspx.designer.cs">
+      <DependentUpon>UserAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserAuthsService.ashx.cs">
+      <DependentUpon>UserAuthsService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserGroup.aspx.cs">
+      <DependentUpon>UserGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserGroup.aspx.designer.cs">
+      <DependentUpon>UserGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserGroupAdd.ashx.cs">
+      <DependentUpon>UserGroupAdd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserGroupAdd.aspx.cs">
+      <DependentUpon>UserGroupAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserGroupAdd.aspx.designer.cs">
+      <DependentUpon>UserGroupAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserInGroup.aspx.cs">
+      <DependentUpon>UserInGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserInGroup.aspx.designer.cs">
+      <DependentUpon>UserInGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DevAdd.aspx.cs">
+      <DependentUpon>DevAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DevAdd.aspx.designer.cs">
+      <DependentUpon>DevAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Devs.aspx.cs">
+      <DependentUpon>Devs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Devs.aspx.designer.cs">
+      <DependentUpon>Devs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DustDistrict.aspx.cs">
+      <DependentUpon>DustDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DustDistrict.aspx.designer.cs">
+      <DependentUpon>DustDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatDetail.aspx.cs">
+      <DependentUpon>StatDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatDetail.aspx.designer.cs">
+      <DependentUpon>StatDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatDustHistroy.aspx.cs">
+      <DependentUpon>StatDustHistroy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatDustHistroy.aspx.designer.cs">
+      <DependentUpon>StatDustHistroy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vedio\CHCNetSDK.cs" />
+    <Compile Include="Vedio\PlayCtrl.cs" />
+    <Compile Include="Vedio\Vedio.cs" />
+    <Compile Include="Vedio\VedioMgr.cs" />
+    <Compile Include="YearMonitorReport.aspx.cs">
+      <DependentUpon>YearMonitorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YearMonitorReport.aspx.designer.cs">
+      <DependentUpon>YearMonitorReport.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\info.html" />
+    <Content Include="ExportChart.aspx" />
+    <Content Include="action\Stat.ashx" />
+    <Content Include="action\Map.ashx" />
+    <Content Include="action\Dev.ashx" />
+    <Content Include="action\StatisDay.ashx" />
+    <Content Include="action\Cmd.ashx" />
+    <Content Include="action\StatisMin.ashx" />
+    <Content Include="action\StatisHour.ashx" />
+    <Content Include="action\ExportChart.ashx" />
+    <Content Include="action\Alarm.ashx" />
+    <Content Include="action\Config.ashx" />
+    <Content Include="action\Photos.ashx" />
+    <Content Include="action\Report.ashx" />
+    <None Include="js\zTree\demo\cn\asyncData\getNodes.php" />
+    <None Include="js\zTree\demo\cn\asyncData\getNodesForBigData.php" />
+    <None Include="js\zTree\demo\en\asyncData\getNodes.php" />
+    <None Include="js\zTree\demo\en\asyncData\getNodesForBigData.php" />
+    <Content Include="admin\index.html" />
+    <Content Include="admin\left.html" />
+    <Content Include="admin\StatEdit.aspx" />
+    <Content Include="images\refresh.png" />
+    <Content Include="js\chart2.js" />
+    <Content Include="js\RegisterJS.js" />
+    <Content Include="admin\Login.aspx" />
+    <Content Include="admin\footer.html" />
+    <Content Include="admin\top.aspx" />
+    <Content Include="Analysis.aspx" />
+    <Content Include="ChangePwd.aspx" />
+    <Content Include="Chart.aspx" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\detail.css" />
+    <Content Include="css\footer.css" />
+    <Content Include="css\popWin.css" />
+    <Content Include="css\register.css" />
+    <Content Include="css\simple.css" />
+    <Content Include="css\tab.css" />
+    <Content Include="css\table.css" />
+    <Content Include="DustAvgRank.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="home.aspx" />
+    <Content Include="images\bluelogin.gif" />
+    <Content Include="images\gb\01.gif" />
+    <Content Include="images\gb\02.gif" />
+    <Content Include="images\gb\anniu_shensuo01.gif" />
+    <Content Include="images\gb\anniu_shensuo02.gif" />
+    <Content Include="images\gb\aroow.png" />
+    <Content Include="images\gb\backcover.jpg" />
+    <Content Include="images\gb\bg-cnkisearch.png" />
+    <Content Include="images\gb\bgpic.png" />
+    <Content Include="images\gb\bottom.jpg" />
+    <Content Include="images\gb\colshu1.gif" />
+    <Content Include="images\gb\dbswitchbg.png" />
+    <Content Include="images\gb\footerbg.png" />
+    <Content Include="images\gb\h1Bg.gif" />
+    <Content Include="images\gb\headbg.png" />
+    <Content Include="images\gb\home.gif" />
+    <Content Include="images\gb\I_arr3.gif" />
+    <Content Include="images\gb\I_arr4.gif" />
+    <Content Include="images\gb\I_loginInput2.gif" />
+    <Content Include="images\gb\I_sideCol1Til.gif" />
+    <Content Include="images\gb\line_03.gif" />
+    <Content Include="images\gb\liulan.gif" />
+    <Content Include="images\gb\loading.gif" />
+    <Content Include="images\gb\logo.gif" />
+    <Content Include="images\gb\navbgpics.png" />
+    <Content Include="images\gb\naviABg.gif" />
+    <Content Include="images\gb\naviBg.gif" />
+    <Content Include="images\gb\naviLImg.gif" />
+    <Content Include="images\gb\ndot16.gif" />
+    <Content Include="images\gb\ndotl2.gif" />
+    <Content Include="images\gb\ndotl5.gif" />
+    <Content Include="images\gb\ndotl7.gif" />
+    <Content Include="images\gb\perbot2.gif" />
+    <Content Include="images\gb\recloseselect.gif" />
+    <Content Include="images\gb\register10.gif" />
+    <Content Include="images\gb\register12.jpg" />
+    <Content Include="images\gb\register13.jpg" />
+    <Content Include="images\gb\register2-bg.gif" />
+    <Content Include="images\gb\register3-mainBg.gif" />
+    <Content Include="images\gb\register3-mainBottom.gif" />
+    <Content Include="images\gb\register3-mainTop.gif" />
+    <Content Include="images\gb\register4-btn.jpg" />
+    <Content Include="images\gb\register4-btn_hover.jpg" />
+    <Content Include="images\gb\rehidelistbg.jpg" />
+    <Content Include="images\gb\reptitbg.gif" />
+    <Content Include="images\gb\searchbtn.png" />
+    <Content Include="images\gb\shareto.gif" />
+    <Content Include="images\gb\spriteC.png" />
+    <Content Include="images\gb\spriteR.gif" />
+    <Content Include="images\gb\spriteR.png" />
+    <Content Include="images\gb\s_jiantou.gif" />
+    <Content Include="images\gb\s_jiantou01.gif" />
+    <Content Include="images\header_bg.jpg" />
+    <Content Include="images\header_right.jpg" />
+    <Content Include="images\line01.gif" />
+    <Content Include="images\loader.gif" />
+    <Content Include="images\menu_bg.jpg" />
+    <Content Include="images\menu_bt.jpg" />
+    <Content Include="images\menu_icon.gif" />
+    <Content Include="js\highchart\exporting.js" />
+    <Content Include="js\highchart\highcharts.js" />
+    <Content Include="js\highchart\standalone-framework.js" />
+    <Content Include="js\gb.js" />
+    <Content Include="js\jquery-1.js" />
+    <Content Include="js\slider\Drag.js" />
+    <Content Include="js\slider\slider.css" />
+    <Content Include="js\slider\slider.js" />
+    <Content Include="js\tab.js" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <None Include="PSD\login.psd" />
+    <None Include="PSD\main.psd" />
+    <Content Include="js\table.js" />
+    <Content Include="js\url.js" />
+    <Content Include="js\chart.js" />
+    <Content Include="libDll\itextsharp.dll" />
+    <Content Include="libDll\Svg.dll" />
+    <Content Include="login.aspx" />
+    <Content Include="RealTimeMonitoring.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="SiteList.aspx" />
+    <Content Include="admin\StatAdd.aspx" />
+    <Content Include="admin\Stats.aspx" />
+    <Content Include="admin\UserGroupAdd.ashx" />
+    <Content Include="admin\UserAuthsService.ashx" />
+    <Content Include="My97DatePicker\calendar.js" />
+    <Content Include="My97DatePicker\config.js" />
+    <Content Include="My97DatePicker\lang\en.js" />
+    <Content Include="My97DatePicker\lang\zh-cn.js" />
+    <Content Include="My97DatePicker\lang\zh-tw.js" />
+    <Content Include="My97DatePicker\My97DatePicker.htm" />
+    <Content Include="My97DatePicker\skin\datePicker.gif" />
+    <Content Include="My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="My97DatePicker\skin\default\img.gif" />
+    <Content Include="My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="My97DatePicker\WdatePicker.js" />
+    <Content Include="quit.aspx" />
+    <Content Include="VerifyImage.ashx" />
+    <Content Include="map.html" />
+    <Content Include="admin\DevAdd.aspx" />
+    <Content Include="admin\Devs.aspx" />
+    <Content Include="DustDistrict.aspx" />
+    <Content Include="admin\CmdTest.html" />
+    <Content Include="StatDetail.aspx" />
+    <Content Include="StatDustHistroy.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{33E288FF-D4AC-481E-9686-1B57D3A2A1A9}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{3826E035-8796-402F-A922-2A7F2D00E4F5}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{FBB84DB4-54CB-478B-BA3E-B1186A2E844A}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Report\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55274</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

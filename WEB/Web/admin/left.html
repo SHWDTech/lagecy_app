@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title></title>
+    <link href="/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+        function expand(el) {
+            childObj = document.getElementById("child" + el);
+            childObj.style.display = childObj.style.display == 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div id="leftMenu">
+        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+                <td valign="top" align="center">
+                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                        <tr>
+                            <td height="10px"></td>
+                        </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick="expand(1)" href="javascript:void(0);">检测点管理</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="4"></td>
+                        </tr>
+                    </table>
+                    <table id="child1" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="StatAdd.aspx" target="main">新增检测点</a></td>
+                        </tr>
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="Stats.aspx" target="main">检测点列表</a></td>
+                        </tr>
+                        <tr>
+                            <td height="4" colspan="2"></td>
+                        </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick="expand(2)" href="javascript:void(0);">设备管理</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="4"></td>
+                        </tr>
+                    </table>
+                    <table id="child2" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="DevAdd.aspx" target="main">新增设备</a></td>
+                        </tr>
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="Devs.aspx" target="main">设备列表</a></td>
+                        </tr>
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="CameraAdd.aspx" target="main">新增摄像头</a></td>
+                        </tr>
+                        <tr>
+                            <td height="4" colspan="2"></td>
+                        </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick=" expand(3) " href="javascript:void(0);">设备测试</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="4"></td>
+                        </tr>
+                    </table>
+                    <table id="child3" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="20" align="center" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="DeviceConfigAll.aspx" target="main">设备测试</a></td>
+                        </tr>
+                        <tr>
+                            <td height="4" colspan="2"></td>
+                        </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick="expand(4)" href="javascript:void(0);">用户组管理</a>
+                            </td>
+                        </tr>
+                        <tr><td height="4"></td></tr>
+                    </table>
+                    <table id="child4" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="javascript:void(0);" target="main">用户组列表</a></td>
+                        </tr>
+                        <tr><td height="4" colspan="2"></td></tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick=" expand(8) " href="javascript:void(0);">系统管理</a>
+                            </td>
+                        </tr>
+                        <tr><td height="4"></td></tr>
+                    </table>
+                    <table id="child8" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="Config.aspx" target="main">参数设置</a></td>
+                        </tr>
+                        <tr><td height="4" colspan="2"></td></tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick="expand(9)" href="javascript:void(0);">用户管理</a>
+                            </td>
+                        </tr>
+                        <tr><td height="4"></td></tr>
+                    </table>
+                    <table id="child9" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="UserAdd.aspx" target="main">新增用户</a></td>
+                        </tr>
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="User.aspx" target="main">用户列表</a></td>
+                        </tr>
+                        <tr><td height="4" colspan="2"></td></tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td height="22" style="PADDING-LEFT: 30px" background="/images/menu_bt.jpg">
+                                <a class="menuParent" onclick="expand(0)" href="javascript:void(0);">个人管理</a>
+                            </td>
+                        </tr>
+                        <tr><td height="4"></td></tr>
+                    </table>
+                    <table id="child0" style="display: none" cellspacing="0" cellpadding="0" width="150px" border="0">
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" href="ChangePwd.aspx" target="main">修改口令</a></td>
+                        </tr>
+                        <tr>
+                            <td align="center" height="20" width="30"><img height="9" src="/images/menu_icon.gif" width="9px"></td>
+                            <td><a class="menuChild" onclick="if (confirm('确定要退出吗？')) return true; else return false;" href="Login.aspx" target="_top">退出系统</a></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="1" bgcolor="#d1e6f7"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
