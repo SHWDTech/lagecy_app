@@ -12,20 +12,12 @@ namespace ESMonApp.AsyncSocketCore
         public AsyncSocketUserToken AsyncSocketUserToken => MAsyncSocketUserToken;
         protected bool MSendAsync; //标识是否有发送异步事件
 
-        //protected DateTime m_connectDT;
-        //public DateTime ConnectDT { get { return m_connectDT; } }
-        //protected DateTime m_activeDT;
-        //public DateTime ActiveDT { get { return m_activeDT; } }
-
         public AsyncSocketInvokeElement(AsyncSocketServer asyncSocketServer, AsyncSocketUserToken asyncSocketUserToken)
         {
             MAsyncSocketServer = asyncSocketServer;
             MAsyncSocketUserToken = asyncSocketUserToken;
 
             MSendAsync = false;
-
-            //m_connectDT = DateTime.Now;
-            //m_activeDT = DateTime.Now;
         }
 
         public virtual void Close()
@@ -41,10 +33,10 @@ namespace ESMonApp.AsyncSocketCore
             Debug.WriteLine($"buffer{BitConverter.ToString(buffer).Replace("-", " ")}:, count:{count}.");
             receiveBuffer.WriteBuffer(buffer, offset, count);
 
-            if (receiveBuffer.DataCount >= BasicFunc.MinPacketLength) 
+            if (receiveBuffer.DataCount >= BasicFunc.MinPacketLength)
             {
                 var packetLength = 0;
-                
+
                 if (!BasicFunc.CheckPacket(buffer, ref packetLength))
                 {
                     return true;
@@ -53,7 +45,7 @@ namespace ESMonApp.AsyncSocketCore
                 if (receiveBuffer.DataCount >= packetLength) //收到的数据达到包长度
                 {
                     var result = ProcessPacket(receiveBuffer.Buffer, 0, packetLength);
-                    
+
                     if (result)
                         receiveBuffer.Clear(packetLength); //从缓存中清理
                     return result;
@@ -81,20 +73,10 @@ namespace ESMonApp.AsyncSocketCore
 
         public virtual bool SendCompleted()
         {
-            //m_activeDT = DateTime.Now;
             MSendAsync = false;
             var asyncSendBufferManager = MAsyncSocketUserToken.SendBuffer;
             asyncSendBufferManager.ClearFirstPacket(); //清除已发送的包
-            //int offset = 0;
-            //int count = 0;
-            //if (asyncSendBufferManager.GetFirstPacket(ref offset, ref count))
-            //{
-            //    m_sendAsync = true;
-            //    return m_asyncSocketServer.SendAsyncEvent(m_asyncSocketUserToken.ConnectSocket, m_asyncSocketUserToken.SendEventArgs,
-            //        asyncSendBufferManager.DynamicBufferManager.Buffer, offset, count);
-            //}
-            //else
-                return SendCallback();
+            return SendCallback();
         }
 
         //发送回调函数，用于连续下发数据
@@ -141,7 +123,7 @@ namespace ESMonApp.AsyncSocketCore
                 if (asyncSendBufferManager.GetFirstPacket(ref packetOffset, ref packetCount))
                 {
                     MSendAsync = true;
-                    result = MAsyncSocketServer.SendAsyncEvent(MAsyncSocketUserToken.ConnectSocket, MAsyncSocketUserToken.SendEventArgs, 
+                    result = MAsyncSocketServer.SendAsyncEvent(MAsyncSocketUserToken.ConnectSocket, MAsyncSocketUserToken.SendEventArgs,
                         asyncSendBufferManager.DynamicBufferManager.Buffer, packetOffset, packetCount);
                 }
             }

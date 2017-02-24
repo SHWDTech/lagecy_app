@@ -102,8 +102,6 @@ namespace ESMonApp.AsyncSocketProtocol
                                 Program.Logger.ErrorFormat("保存TaskNotice错误: {0},ESMIN_ID{1}，TaskNoticeID{2}", ex.Message, dataId, model.TaskId);
                                 Program.Logger.Error(ex.StackTrace);
                             }
-                            
-
                         }
                     }
                     else

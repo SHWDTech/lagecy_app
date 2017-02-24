@@ -91,7 +91,7 @@ namespace ESMonApp.AsyncSocketProtocol
                                             //DevsManage.SetRecvMsgState(devId, false);
                                             DevsManage.SetCurTaskId(devId, 0);
                                             DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
-                                            
+
                                             //重新发送N次
                                             //N次后依然不成功，就提示用户并保留不成功的日志
                                         }
@@ -109,7 +109,7 @@ namespace ESMonApp.AsyncSocketProtocol
                                             if (protocol.AsyncSocketUserToken.ConnectSocket != null)
                                             {
                                                 lock (protocol)
-                                                {                                                   
+                                                {
                                                     if (protocol.DoSendResult(buffer, 0, length))//true表示发送成功
                                                     {
                                                         Debug.WriteLine("发送数据成功。");
@@ -117,12 +117,10 @@ namespace ESMonApp.AsyncSocketProtocol
                                                         Debug.WriteLine($"SetStatusBusy:{(int)CommStatus.Busy}");
                                                         DevsManage.SetDevStatus(devId, (int)CommStatus.Busy);
                                                         DevsManage.UpdateSendTime(devId);
-                                                    }                                                    
+                                                    }
                                                 }
                                             }
                                         }
-
-
                                         break;
 
                                     //通信状态断开，不发送
@@ -208,7 +206,7 @@ namespace ESMonApp.AsyncSocketProtocol
         {
             if (IsExist(devId))
             {
-                _mList.Remove(devId);               
+                _mList.Remove(devId);
             }
 
             lock (_mList)
@@ -219,11 +217,11 @@ namespace ESMonApp.AsyncSocketProtocol
 
         public static void Remove(int devId)
         {
-            lock(_mList)
+            lock (_mList)
             {
                 _mList.Remove(devId);
             }
-            
+
         }
 
         public static void Clear()
