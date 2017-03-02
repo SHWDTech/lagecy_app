@@ -11,16 +11,16 @@ namespace ESMonApp.AsyncSocketCore
     public class AsyncSocketServer
     {
 
-         public AsyncSocketServer(int numConnections)
-         {
-             _mIsStarted = false;
-             _mNumConnections = numConnections;
-             _mReceiveBufferSize = ProtocolConst.ReceiveBufferSize;
+        public AsyncSocketServer(int numConnections)
+        {
+            _mIsStarted = false;
+            _mNumConnections = numConnections;
+            _mReceiveBufferSize = ProtocolConst.ReceiveBufferSize;
 
-             _mAsyncSocketUserTokenPool = new AsyncSocketUserTokenPool(numConnections);
-             AsyncSocketUserTokenList = new AsyncSocketUserTokenList();
-             _mMaxNumberAcceptedClients = new Semaphore(numConnections, numConnections);
-         }
+            _mAsyncSocketUserTokenPool = new AsyncSocketUserTokenPool(numConnections);
+            AsyncSocketUserTokenList = new AsyncSocketUserTokenList();
+            _mMaxNumberAcceptedClients = new Semaphore(numConnections, numConnections);
+        }
 
         private Socket _listenSocket;
         private bool _mIsStarted; //是否已经启动服务
@@ -49,14 +49,19 @@ namespace ESMonApp.AsyncSocketCore
                 _mAsyncSocketUserTokenPool.Push(userToken);
             }
 
-            var adjustTimeSchedule = new ScheduleTask(TimeSpan.TicksPerDay, true, ScheduleType.StartOnCondition);
-            adjustTimeSchedule.OnScheduleExecuting += delegate 
+            var adjustTimeSchedule = new ScheduleTask(0, true, ScheduleType.StartOnCondition);
+            adjustTimeSchedule.OnScheduleExecuting += delegate(object sender, ScheduleTaskExecuteEventArgs args)
             {
-                AsyncSocketUserTokenList.AdjestTime();
+                var task = (ScheduleTask) sender;
+                if (task == null || task.LastExecuteTime.Date == DateTime.Today.Date) return;
+                if (DateTime.Now.Hour == 3 && DateTime.Now.Minute == 0 && DateTime.Now.Second < 30)
+                {
+                    AsyncSocketUserTokenList.AdjestTime();
+                }
             };
             adjustTimeSchedule.StartCondition = running =>
             {
-                if(running) return true;
+                if (running) return true;
                 return DateTime.Now.Hour == 3 && DateTime.Now.Second < 30;
             };
             ScheduleManager.Register(adjustTimeSchedule);
@@ -69,7 +74,7 @@ namespace ESMonApp.AsyncSocketCore
             var ret = false;
             if (_mIsStarted) return false;
             _listenSocket = new Socket(localEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
+
             try
             {
                 _listenSocket.Bind(localEndPoint);
@@ -85,7 +90,7 @@ namespace ESMonApp.AsyncSocketCore
                 _mIsStarted = true;
 
                 ScheduleManager.Start();
-                    
+
                 ret = true;
             }
             catch (Exception ex)
@@ -100,7 +105,7 @@ namespace ESMonApp.AsyncSocketCore
         public bool Stop()
         {
             var ret = false;
-            
+
             if (_mIsStarted)
             {
                 _listenSocket.Close();
@@ -115,7 +120,7 @@ namespace ESMonApp.AsyncSocketCore
 
                 ret = true;
             }
-            
+
             return ret;
         }
 
@@ -150,15 +155,15 @@ namespace ESMonApp.AsyncSocketCore
                 Program.Logger.ErrorFormat("Accept client {0} error, message: {1}", acceptEventArgs.AcceptSocket, e.Message);
                 Program.Logger.Error(e.StackTrace);
 
-                Program.OutputLog.LogFormat("Accept client {0} error, message: {1}", acceptEventArgs.AcceptSocket, e.Message);   
-            }            
+                Program.OutputLog.LogFormat("Accept client {0} error, message: {1}", acceptEventArgs.AcceptSocket, e.Message);
+            }
         }
 
         private void ProcessAccept(SocketAsyncEventArgs acceptEventArgs)
         {
             Program.Logger.InfoFormat("Client connection accepted. Local Address: {0}, Remote Address: {1}",
                 acceptEventArgs.AcceptSocket.LocalEndPoint, acceptEventArgs.AcceptSocket.RemoteEndPoint);
-                
+
             Program.OutputLog.LogFormat("Client connection accepted. Local Address: {0}, Remote Address: {1}",
                 acceptEventArgs.AcceptSocket.LocalEndPoint, acceptEventArgs.AcceptSocket.RemoteEndPoint);
 
@@ -176,15 +181,15 @@ namespace ESMonApp.AsyncSocketCore
                     {
                         ProcessReceive(userToken.ReceiveEventArgs);
                     }
-                }                    
+                }
             }
             catch (Exception e)
             {
                 Program.Logger.ErrorFormat("Accept client {0} error, message: {1}", userToken.ConnectSocket, e.Message);
                 Program.Logger.Error(e.StackTrace);
-                
-                Program.OutputLog.LogFormat("Accept client {0} error, message: {1}", userToken.ConnectSocket, e.Message);                
-            }            
+
+                Program.OutputLog.LogFormat("Accept client {0} error, message: {1}", userToken.ConnectSocket, e.Message);
+            }
 
             StartAccept(acceptEventArgs); //把当前异步事件释放，等待下次连接
         }
@@ -193,7 +198,7 @@ namespace ESMonApp.AsyncSocketCore
         {
             var userToken = asyncEventArgs.UserToken as AsyncSocketUserToken;
             //userToken.ActiveDateTime = DateTime.Now;
-            
+
             try
             {
                 if (userToken == null) return;
@@ -217,14 +222,14 @@ namespace ESMonApp.AsyncSocketCore
                 if (userToken != null)
                     Program.Logger.ErrorFormat("IO_Completed {0} error, message: {1}", userToken.ConnectSocket, e.Message);
                 Program.Logger.Error(e.StackTrace);
-            }                     
+            }
         }
 
         private void ProcessReceive(SocketAsyncEventArgs receiveEventArgs)
         {
             var userToken = (AsyncSocketUserToken)receiveEventArgs.UserToken;//接受事件的用户令牌就等于自身
-            
-            
+
+
             if (userToken.ConnectSocket == null)
             {
                 return;
@@ -242,7 +247,7 @@ namespace ESMonApp.AsyncSocketCore
 
                 if (userToken.AsyncSocketInvokeElement == null) //如果没有解析对象，提示非法连接并关闭连接
                 {
-                    Program.Logger.WarnFormat("Illegal client connection. Local Address: {0}, Remote Address: {1}", userToken.ConnectSocket.LocalEndPoint, 
+                    Program.Logger.WarnFormat("Illegal client connection. Local Address: {0}, Remote Address: {1}", userToken.ConnectSocket.LocalEndPoint,
                         userToken.ConnectSocket.RemoteEndPoint);
 
                     CloseClientSocket(userToken);
@@ -252,7 +257,7 @@ namespace ESMonApp.AsyncSocketCore
                     if (count > 0) //处理接收数据
                     {
                         var rxStatus = userToken.AsyncSocketInvokeElement.ProcessReceive(userToken.ReceiveEventArgs.Buffer, offset, count);
-                        
+
                         //处理数据返回失败，丢包
                         if (rxStatus)
                         {
@@ -290,7 +295,7 @@ namespace ESMonApp.AsyncSocketCore
             {
                 Program.Logger.InfoFormat("Building socket invoke element {0}.Local Address: {1}, Remote Address: {2}",
                     userToken.AsyncSocketInvokeElement, userToken.ConnectSocket.LocalEndPoint, userToken.ConnectSocket.RemoteEndPoint);
-            } 
+            }
         }
 
         private bool ProcessSend(SocketAsyncEventArgs sendEventArgs)
@@ -301,7 +306,7 @@ namespace ESMonApp.AsyncSocketCore
                 return false;
             }
 
-//            userToken.ActiveDateTime = DateTime.Now;
+            //            userToken.ActiveDateTime = DateTime.Now;
 
             if (sendEventArgs.SocketError == SocketError.Success)
             {
@@ -320,7 +325,7 @@ namespace ESMonApp.AsyncSocketCore
             {
                 return false;
             }
-            
+
             sendEventArgs.SetBuffer(buffer, offset, count);
             var willRaiseEvent = connectSocket.SendAsync(sendEventArgs);
             return willRaiseEvent || ProcessSend(sendEventArgs);

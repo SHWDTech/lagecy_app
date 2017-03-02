@@ -25,6 +25,8 @@ namespace ESMonApp.ScheduleTasks
 
         public Condition EndCondition { get; set; }
 
+        private bool _isExecuting;
+
         public ScheduleTask(long interval, bool repeatable, ScheduleType type)
         {
             Interval = interval;
@@ -50,12 +52,14 @@ namespace ESMonApp.ScheduleTasks
 
         public virtual void Execute()
         {
+            if (_isExecuting) return;
             if (ScheduleType == ScheduleType.StartOnCondition)
             {
                 EvaluateStartCondition();
             }
             if (!IsRunning) return;
             if (OnScheduleExecuting == null) throw new NullReferenceException("Must set Executing event.");
+            _isExecuting = true;
             var thread = new Thread(DoExecute)
             {
                 IsBackground = true
@@ -73,6 +77,14 @@ namespace ESMonApp.ScheduleTasks
             {
                 EvaluateEndCondition();
             }
+            else
+            {
+                if (!Repeatable)
+                {
+                    IsRunning = false;
+                }
+            }
+            _isExecuting = false;
         }
 
         private void FinishExecute(ScheduleTaskExecuteEventArgs args)
