@@ -4,7 +4,7 @@
     {
         HeartBeat = 0x1F, //心跳包
         
-        AdjustTime = 0x1F, //时间校准
+        AdjustTime = 0x5F, //时间校准
 
         UploadInstNoise = 0x1D, //读出瞬时值
         

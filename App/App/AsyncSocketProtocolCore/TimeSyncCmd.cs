@@ -1,38 +1,38 @@
-﻿namespace ESMonApp.AsyncSocketProtocolCore
+﻿using System;
+
+namespace ESMonApp.AsyncSocketProtocolCore
 {
     public class TimeSyncCmd : ProtocolCmd
     {
         public TimeSyncCmd()
         {
-            CmdType = 0xFB;
-            CmdByte = 0x1F;
+            CmdType = (byte)ProtocolCmdType.ModuleCfg;
+            CmdByte = (byte)ProtocolCmdByte.AdjustTime;
         }
 
-        //public void EncodeCmd(RTCTime model)
-        //{
-        //    UInt16 bufferIndex = 0;
+        public void EncodeCmd(DateTime date)
+        {
+            ushort bufferIndex = 0;
 
-        //    Array.Copy(Utility.UINT16ToBytes(model.Year, false), 0, Data, bufferIndex, 2);
-        //    bufferIndex += 2;
+            Data[bufferIndex] = (byte)(date.Year - 2000);
+            bufferIndex += 1;
 
-        //    Data[bufferIndex] = model.Month;
-        //    bufferIndex += 1;
+            Data[bufferIndex] = (byte)date.Month;
+            bufferIndex += 1;
 
-        //    Data[bufferIndex] = model.Day;
-        //    bufferIndex += 1;
+            Data[bufferIndex] = (byte)date.Day;
+            bufferIndex += 1;
 
-        //    Data[bufferIndex] = model.Hour;
-        //    bufferIndex += 1;
+            Data[bufferIndex] = (byte)date.Hour;
+            bufferIndex += 1;
 
-        //    Data[bufferIndex] = model.Min;
-        //    bufferIndex += 1;
+            Data[bufferIndex] = (byte)date.Minute;
+            bufferIndex += 1;
 
-        //    Data[bufferIndex] = model.Sec;
-        //    bufferIndex += 1;
+            Data[bufferIndex] = (byte)date.Second;
+            bufferIndex += 1;
 
-        //    DataLen += bufferIndex;
-
-        //    return;
-        //}
+            DataLen += bufferIndex;
+        }
     }
 }

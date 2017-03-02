@@ -123,6 +123,11 @@
     </Compile>
     <Compile Include="DevsManage.cs" />
     <Compile Include="DevStatus.cs" />
+    <Compile Include="ScheduleTasks\IScheduleTask.cs" />
+    <Compile Include="ScheduleTasks\ScheduleManager.cs" />
+    <Compile Include="ScheduleTasks\ScheduleTask.cs" />
+    <Compile Include="ScheduleTasks\ScheduleTaskExecuteEventArgs.cs" />
+    <Compile Include="ScheduleTasks\ScheduleType.cs" />
     <Compile Include="VedioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +217,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

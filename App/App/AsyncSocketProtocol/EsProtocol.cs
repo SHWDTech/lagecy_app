@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using ESMonApp.AsyncSocketCore;
 using ESMonApp.AsyncSocketProtocolCore;
 
@@ -21,7 +20,6 @@ namespace ESMonApp.AsyncSocketProtocol
 
         public override bool ProcessCommand(byte[] buffer, int offset, int packetLen)//packetLen是总的数据长度
         {
-            Debug.WriteLine("开始解析协议。");
             var res = _responseCmd.DecodeFrame(buffer, packetLen);
 
             if (!res)
@@ -30,7 +28,6 @@ namespace ESMonApp.AsyncSocketProtocol
             }
 
             var devId = DevsManage.GetDevId(_responseCmd.NodeId);
-            Debug.WriteLine($"发送协议的设备号：{devId}");
             if (devId <= 0)
             {
                 return false;
@@ -40,7 +37,6 @@ namespace ESMonApp.AsyncSocketProtocol
             switch ((ProtocolCmdType)_responseCmd.CmdType)
             {
                 case ProtocolCmdType.SysComm:
-                    Debug.WriteLine("心跳包");
                     if (_responseCmd.CmdByte == (Byte)ProtocolCmdByte.HeartBeat)
                     {
                         
@@ -50,6 +46,7 @@ namespace ESMonApp.AsyncSocketProtocol
                             DevsManage.Register(devId);//注册
                             DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
                             EsProtocolMgr.Add(devId, this);
+                            AdjustTime();
                         }
                         else
                         {
@@ -72,7 +69,6 @@ namespace ESMonApp.AsyncSocketProtocol
                 case ProtocolCmdType.ModuleCtrl:
                     if (_responseCmd.CmdByte == (byte)ProtocolCmdByte.GetGpsInfo)
                     {
-                        Debug.WriteLine("收到GPS协议。。");
                         DevsManage.UpdateRecvTime(devId);
                         AddTaskResponse(devId, buffer, packetLen);
                     }
@@ -131,6 +127,18 @@ namespace ESMonApp.AsyncSocketProtocol
             return DoSendResult(buffer, 0, bufferLen);
         }
 
+        public void AdjustTime()
+        {
+            var buffer = new byte[64];
+            var bufferLen = 0;
+            var cmd = new TimeSyncCmd();
+
+            cmd.EncodeCmd(DateTime.Now);
+            cmd.EncodeFrame(ref buffer, ref bufferLen);
+            
+            DoSendResult(buffer, 0, bufferLen);
+        }
+
         /// <summary>
         /// 保存下位机上传的分钟均值
         /// </summary>
@@ -179,7 +187,6 @@ namespace ESMonApp.AsyncSocketProtocol
         /// <param name="packetLen"></param>
         private void AddTaskResponse(int devId, byte[] buffer, int packetLen)
         {
-            Debug.WriteLine("更新任务信息。");
             var model = new ESMonitor.Model.TaskNotice();
             var taskId = DevsManage.GetCurTaskId(devId);
             if (taskId == 0)
@@ -191,7 +198,6 @@ namespace ESMonApp.AsyncSocketProtocol
             if (packetLen > 0)
             {
                 model.Data = buffer;
-                //Array.Copy(ResponseCmd.Data, model.Data, ResponseCmd.DataLen);
             }
 
             model.UpdateTime = DateTime.Now;
@@ -204,11 +210,10 @@ namespace ESMonApp.AsyncSocketProtocol
             {
                 Program.Logger.ErrorFormat($"ProcessCommand error, message: {e.Message}");
                 Program.Logger.Error(e.StackTrace);
-                //DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
+                DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
             }
 
             DevsManage.SetCurTaskId(devId, 0);
-            Debug.WriteLine($"SetStatusFree:{(int)CommStatus.Free}");
             DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
         }
     }

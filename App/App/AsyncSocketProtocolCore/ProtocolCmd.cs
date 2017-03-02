@@ -183,7 +183,7 @@ namespace ESMonApp.AsyncSocketProtocolCore
             return true;
         }
 
-        public void EncodeCmd()
+        public virtual void EncodeCmd()
         {
         }
 

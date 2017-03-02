@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Threading;
 using ESMonApp.AsyncSocketProtocol;
 using ESMonApp.AsyncSocketProtocolCore;
+using ESMonApp.ScheduleTasks;
 
 namespace ESMonApp.AsyncSocketCore
 {
@@ -48,6 +49,18 @@ namespace ESMonApp.AsyncSocketCore
                 _mAsyncSocketUserTokenPool.Push(userToken);
             }
 
+            var adjustTimeSchedule = new ScheduleTask(TimeSpan.TicksPerDay, true, ScheduleType.StartOnCondition);
+            adjustTimeSchedule.OnScheduleExecuting += delegate 
+            {
+                AsyncSocketUserTokenList.AdjestTime();
+            };
+            adjustTimeSchedule.StartCondition = running =>
+            {
+                if(running) return true;
+                return DateTime.Now.Hour == 3 && DateTime.Now.Second < 30;
+            };
+            ScheduleManager.Register(adjustTimeSchedule);
+
             EsProtocolMgr = new EsProtocolMgr();
         }
 
@@ -70,6 +83,8 @@ namespace ESMonApp.AsyncSocketCore
                 _mDaemonThread = new DaemonThread(this);
 
                 _mIsStarted = true;
+
+                ScheduleManager.Start();
                     
                 ret = true;
             }
@@ -95,7 +110,9 @@ namespace ESMonApp.AsyncSocketCore
                 _mDaemonThread = null;
 
                 _mIsStarted = false;
-                
+
+                ScheduleManager.Stop();
+
                 ret = true;
             }
             
