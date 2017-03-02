@@ -11,7 +11,7 @@ namespace ESMonApp.ScheduleTasks
 
         static ScheduleManager()
         {
-            ScheduleTimer.Interval = 10000;
+            ScheduleTimer.Interval = 5000;
             ScheduleTimer.Elapsed += ScheduleExecuter;
         }
 

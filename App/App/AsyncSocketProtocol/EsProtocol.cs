@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using ESMonApp.AsyncSocketCore;
 using ESMonApp.AsyncSocketProtocolCore;
 
@@ -39,8 +40,6 @@ namespace ESMonApp.AsyncSocketProtocol
                 case ProtocolCmdType.SysComm:
                     if (_responseCmd.CmdByte == (Byte)ProtocolCmdByte.HeartBeat)
                     {
-                        
-
                         if (!DevsManage.IsRegistered(devId))
                         {
                             DevsManage.Register(devId);//注册
@@ -137,6 +136,11 @@ namespace ESMonApp.AsyncSocketProtocol
             cmd.EncodeFrame(ref buffer, ref bufferLen);
             
             DoSendResult(buffer, 0, bufferLen);
+            for (var i = 0; i < bufferLen; i++)
+            {
+                Debug.Write(buffer[i].ToString("X") + " ");
+            }
+            Debug.WriteLine("end");
         }
 
         /// <summary>

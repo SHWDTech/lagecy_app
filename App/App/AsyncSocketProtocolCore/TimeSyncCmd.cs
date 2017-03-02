@@ -6,7 +6,7 @@ namespace ESMonApp.AsyncSocketProtocolCore
     {
         public TimeSyncCmd()
         {
-            CmdType = (byte)ProtocolCmdType.ModuleCfg;
+            CmdType = (byte)ProtocolCmdType.ModuleCtrl;
             CmdByte = (byte)ProtocolCmdByte.AdjustTime;
         }
 

@@ -62,7 +62,7 @@ namespace ESMonApp.AsyncSocketCore
             adjustTimeSchedule.StartCondition = running =>
             {
                 if (running) return true;
-                return DateTime.Now.Hour == 3 && DateTime.Now.Second < 30;
+                return DateTime.Now.Hour == 3;
             };
             ScheduleManager.Register(adjustTimeSchedule);
 
