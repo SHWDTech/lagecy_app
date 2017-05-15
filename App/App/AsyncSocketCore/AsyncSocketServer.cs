@@ -344,30 +344,6 @@ namespace ESMonApp.AsyncSocketCore
 
             Program.OutputLog.LogFormat("Client connection disconnected. {0}", socketInfo);
 
-            //if (!userToken.ConnectSocket.Connected)
-            //{
-            //    return;
-            //}
-
-            //try
-            //{
-            //    //userToken.ConnectSocket.Shutdown(SocketShutdown.Both);
-            //}
-            //catch (Exception E) 
-            //{
-            //    Program.Logger.ErrorFormat("CloseClientSocket Disconnect client {0} error, message: {1}", socketInfo, E.Message);
-
-            //    Program.OutputLog.LogFormat("CloseClientSocket Disconnect client {0} error, message: {1}", socketInfo, E.Message);   
-            //}
-
-            ////userToken.ConnectSocket.Close();
-            //userToken.ConnectSocket.Close();
-            //userToken.ConnectSocket = null; //释放引用，并清理缓存，包括释放协议对象等资源
-            //userToken.State = false;
-            //m_maxNumberAcceptedClients.Release();
-            //m_asyncSocketUserTokenPool.Push(userToken);
-            //m_asyncSocketUserTokenList.Remove(userToken);
-
 
             if (userToken.ConnectSocket.Connected)
             {

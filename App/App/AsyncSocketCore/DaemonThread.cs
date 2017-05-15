@@ -28,7 +28,7 @@ namespace ESMonApp.AsyncSocketCore
                     try
                     {
                         //判断通信超时
-                        if (((userTokenArray[i].State && (DateTime.Now - userTokenArray[i].ActiveDateTime).TotalMilliseconds > 
+                        if (((userTokenArray[i].State && (DateTime.Now - userTokenArray[i].ActiveDateTime).TotalMilliseconds >
                             _mAsyncSocketServer.SocketTimeOutMs)) || (((userTokenArray[i].State==false) && (DateTime.Now - userTokenArray[i].ConnectDateTime).TotalMilliseconds >
                             _mAsyncSocketServer.SocketTimeOutMs)))//超时Socket断开
                         {
@@ -37,13 +37,13 @@ namespace ESMonApp.AsyncSocketCore
                                 _mAsyncSocketServer.CloseClientSocket(userTokenArray[i]);
                             }
                         }
-                    }                    
+                    }
                     catch (Exception e)
                     {
                         Program.Logger.ErrorFormat("Daemon thread check timeout socket error, message: {0}", e.Message);
                         Program.Logger.Error(e.StackTrace);
 
-                        Program.OutputLog.LogFormat("Daemon thread check timeout socket error, message: {0}", e.Message); 
+                        Program.OutputLog.LogFormat("Daemon thread check timeout socket error, message: {0}", e.Message);
                     }
                 }
 

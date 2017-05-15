@@ -91,6 +91,7 @@ namespace ESMonApp
             var rst = false;
             if (_devStatusDic.ContainsKey(devId))
             {
+                RedisService.GetRedisDatabase().StringSet($"Device-LastConnectTime:{devId}", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss fff}");
                 _devStatusDic[devId].IsRegistered = true;
 
                 rst = true;
@@ -160,6 +161,7 @@ namespace ESMonApp
             if (_devStatusDic.ContainsKey(devId))
             {
                 _devStatusDic[devId].SendTime = DateTime.Now;
+                RedisService.GetRedisDatabase().StringSet($"Device-LastSendTime:{devId}", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss fff}");
                 rst = true;
             }
 
@@ -184,6 +186,7 @@ namespace ESMonApp
             if (_devStatusDic.ContainsKey(devId))
             {
                 _devStatusDic[devId].HeartBeatTime = DateTime.Now;
+                RedisService.GetRedisDatabase().StringSet($"Device-LastHeartBeatTime:{devId}", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss fff}");
                 rst = true;
             }
 
@@ -208,6 +211,7 @@ namespace ESMonApp
             if (_devStatusDic.ContainsKey(devId))
             {
                 _devStatusDic[devId].RecvTime = DateTime.Now;
+                RedisService.GetRedisDatabase().StringSet($"Device-LastReciveTime:{devId}", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss fff}");
                 rst = true;
             }
 

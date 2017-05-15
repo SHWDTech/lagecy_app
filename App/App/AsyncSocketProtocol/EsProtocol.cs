@@ -12,7 +12,7 @@ namespace ESMonApp.AsyncSocketProtocol
         private readonly ESMonitor.BLL.EsMin _esMinBll = new ESMonitor.BLL.EsMin();
 
         private readonly DevCtrlResponseCmd _responseCmd = new DevCtrlResponseCmd();
-        
+
         public EsProtocol(AsyncSocketServer asyncSocketServer, AsyncSocketUserToken asyncSocketUserToken)
             : base(asyncSocketServer, asyncSocketUserToken)
         {
@@ -33,7 +33,7 @@ namespace ESMonApp.AsyncSocketProtocol
             {
                 return false;
             }
-            
+
             //Check command
             switch ((ProtocolCmdType)_responseCmd.CmdType)
             {
@@ -52,14 +52,14 @@ namespace ESMonApp.AsyncSocketProtocol
                             if (!EsProtocolMgr.IsSocketConect(devId, this))
                             {
                                 EsProtocolMgr.Add(devId, this);//此处顺序有问题
-                            }                        
+                            }
                         }
 
                         DevsManage.SetTimeOutCount(devId, 3);
 
                         //更新心跳时间
                         DevsManage.UpdateHeartBeatTime(devId);
-                        
+
                         DoHeartBeat();
                     }
                     break;
@@ -134,7 +134,7 @@ namespace ESMonApp.AsyncSocketProtocol
 
             cmd.EncodeCmd(DateTime.Now);
             cmd.EncodeFrame(ref buffer, ref bufferLen);
-            
+
             DoSendResult(buffer, 0, bufferLen);
             for (var i = 0; i < bufferLen; i++)
             {
@@ -177,7 +177,7 @@ namespace ESMonApp.AsyncSocketProtocol
                 model.StatId = 0;
                 model.Country = "";
             }
-            
+
             model.DataStatus = model.WindSpeed > 5 ? "S" : "N";
 
             return _esMinBll.Add(model);
@@ -195,7 +195,7 @@ namespace ESMonApp.AsyncSocketProtocol
             var taskId = DevsManage.GetCurTaskId(devId);
             if (taskId == 0)
                 return;
-            
+
             model.TaskId = taskId;
             model.DevId = devId;
             model.Length = packetLen;

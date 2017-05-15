@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using ESMonApp.AsyncSocketPublic;
+﻿using ESMonApp.AsyncSocketPublic;
 
 namespace ESMonApp.AsyncSocketCore
 {
@@ -27,10 +25,7 @@ namespace ESMonApp.AsyncSocketCore
 
         public virtual bool ProcessReceive(byte[] buffer, int offset, int count) //接收异步事件返回的数据，用于对数据进行缓存和分包
         {
-            //m_activeDT = DateTime.Now;
-            Debug.WriteLine("收到TCP数据。");
             var receiveBuffer = MAsyncSocketUserToken.ReceiveBuffer;
-            Debug.WriteLine($"buffer{BitConverter.ToString(buffer).Replace("-", " ")}:, count:{count}.");
             receiveBuffer.WriteBuffer(buffer, offset, count);
 
             if (receiveBuffer.DataCount >= BasicFunc.MinPacketLength)

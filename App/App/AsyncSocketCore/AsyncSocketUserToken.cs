@@ -40,7 +40,7 @@ namespace ESMonApp.AsyncSocketCore
                     MReceiveBuffer.Clear(MReceiveBuffer.DataCount);
                     MSendBuffer.ClearPacket();
                 }
-                MAsyncSocketInvokeElement = null;                
+                MAsyncSocketInvokeElement = null;
                 MReceiveEventArgs.AcceptSocket = MConnectSocket;
                 MSendEventArgs.AcceptSocket = MConnectSocket;
             }
@@ -52,7 +52,7 @@ namespace ESMonApp.AsyncSocketCore
 
         protected DateTime MConnectDateTime;
         public DateTime ConnectDateTime { get { return MConnectDateTime; } set { MConnectDateTime = value; } }
-        
+
         public AsyncSocketUserToken(int asyncReceiveBufferSize)
         {
             MState = false;
