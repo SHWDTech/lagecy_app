@@ -13,9 +13,10 @@ namespace ESMonApp
         private DateTime _sendTime; //发包时间
         private DateTime _recvTime; // 接收响应帧时间
         private DateTime _heartbeatTime; // 接收响应帧时间
+        private DateTime _autoUploadTime; //自动上传数据时间
         private long _taskId;
 
-        public int Id 
+        public int Id
         {
             set { _id = value; }
             get { return _id; }
@@ -57,12 +58,18 @@ namespace ESMonApp
             get { return _recvTime; }
         }
 
+        public DateTime AutoUploadTime
+        {
+            set { _autoUploadTime = value; }
+            get { return _autoUploadTime; }
+        }
+
         public DateTime HeartBeatTime
         {
             set { _heartbeatTime = value; }
             get { return _heartbeatTime; }
-        } 
-        
+        }
+
         public long TaskId
         {
             set {_taskId = value;}

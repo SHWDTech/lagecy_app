@@ -82,6 +82,7 @@ namespace ESMonApp.AsyncSocketProtocol
                         if (_responseCmd.DecodeAutoUploadEsParamsCmd(ref esParams))
                         {
                             var dataId = AddEsMin(devId, esParams);
+                            DevsManage.UpdateAutoUploadTime(devId);
                             var model = new ESMonitor.Model.TaskNotice();
                             try
                             {

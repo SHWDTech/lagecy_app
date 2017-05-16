@@ -218,6 +218,19 @@ namespace ESMonApp
             return rst;
         }
 
+        public static bool UpdateAutoUploadTime(int devId)
+        {
+            var rst = false;
+            if (_devStatusDic.ContainsKey(devId))
+            {
+                _devStatusDic[devId].AutoUploadTime = DateTime.Now;
+                RedisService.GetRedisDatabase().StringSet($"Device-LastAutoUploadTime:{devId}", $"{DateTime.Now:yyyy-MM-dd HH:mm:ss fff}");
+                rst = true;
+            }
+
+            return rst;
+        }
+
         public static int GetDevId(UInt32 nodeId)//根据地址获得设备的编号
         {
             var rst = 0;
