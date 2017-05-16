@@ -110,6 +110,7 @@
     <Compile Include="AsyncSocketProtocol\EsProtocol.cs" />
     <Compile Include="AsyncSocketProtocol\ESProtocolMgr.cs" />
     <Compile Include="AsyncSocketPublic\BasicFunc.cs" />
+    <Compile Include="Common\AppConfig.cs" />
     <Compile Include="Common\RedisService.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
