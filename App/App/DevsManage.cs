@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using ESMonApp.AsyncSocketProtocolCore;
 using ESMonApp.Common;
 
@@ -100,10 +99,25 @@ namespace ESMonApp
             return rst;
         }
 
+        public static void UpdateDevStats(int devId)
+        {
+            var stat = new ESMonitor.BLL.Devs().GetDevStat(devId);
+            if (stat != null)
+            {
+                var statInfo = new StatInfo
+                {
+                    StatId = stat.Id,
+                    Country = stat.Country,
+                    StatCodeUp = 1
+                };
+
+                _devRelatedStatDic[devId] = statInfo;
+            }
+        }
+
         //设置状态
         public static void SetDevStatus(int devId, int status)//设置这样一种设备的连接状态
         {
-            Debug.WriteLine($"DevId:{devId}, Status:{status}");
             if (_devStatusDic.ContainsKey(devId))
             {
                 _devStatusDic[devId].Status = status;
@@ -231,7 +245,7 @@ namespace ESMonApp
             return rst;
         }
 
-        public static int GetDevId(UInt32 nodeId)//根据地址获得设备的编号
+        public static int GetDevId(uint nodeId)//根据地址获得设备的编号
         {
             var rst = 0;
             if (_devAddrDic.ContainsKey(nodeId))

@@ -8,7 +8,7 @@ namespace ESMonApp.Common
 
         static RedisService()
         {
-            RedisDatabase = ConnectionMultiplexer.Connect("localhost").GetDatabase();
+            RedisDatabase = ConnectionMultiplexer.Connect("121.40.49.97").GetDatabase();
         }
 
         public static IDatabase GetRedisDatabase() => RedisDatabase;

@@ -82,7 +82,6 @@ namespace ESMonApp.AsyncSocketProtocol
                         if (_responseCmd.DecodeAutoUploadEsParamsCmd(ref esParams))
                         {
                             var dataId = AddEsMin(devId, esParams);
-                            DevsManage.UpdateAutoUploadTime(devId);
                             var model = new ESMonitor.Model.TaskNotice();
                             try
                             {
@@ -98,6 +97,7 @@ namespace ESMonApp.AsyncSocketProtocol
                                 Program.Logger.ErrorFormat("保存TaskNotice错误: {0},ESMIN_ID{1}，TaskNoticeID{2}", ex.Message, dataId, model.TaskId);
                                 Program.Logger.Error(ex.StackTrace);
                             }
+                            DevsManage.UpdateAutoUploadTime(devId);
                         }
                     }
                     else
