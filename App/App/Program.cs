@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
+using System.Threading;
 using ESMonApp.AsyncSocketCore;
 using log4net;
 using ESMonApp.AsyncSocketProtocol;
@@ -60,6 +61,7 @@ namespace ESMonApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ThreadPool.SetMinThreads(200, 200);
             Application.Run(new MainForm());
         }
     }
