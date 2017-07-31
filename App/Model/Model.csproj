@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaiduCordinateResult.cs" />
     <Compile Include="Devs.cs" />
     <Compile Include="ESDay.cs" />
     <Compile Include="ESHour.cs" />

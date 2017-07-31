@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text;
 using ESMonApp.AsyncSocketCore;
 using ESMonApp.AsyncSocketProtocolCore;
+using ESMonitor.Model;
+using Newtonsoft.Json;
 
 namespace ESMonApp.AsyncSocketProtocol
 {
@@ -106,6 +111,13 @@ namespace ESMonApp.AsyncSocketProtocol
                         AddTaskResponse(devId, buffer, packetLen);
                     }
                     break;
+                case ProtocolCmdType.DevStatus:
+                    if (_responseCmd.CmdByte == (byte)ProtocolCmdByte.GetGpsInfo)
+                    {
+                        DevsManage.UpdateRecvTime(devId);
+                        UpdateDevGps(_responseCmd, devId);
+                    }
+                    break;
             }
 
             return true;
@@ -151,7 +163,7 @@ namespace ESMonApp.AsyncSocketProtocol
         /// <param name="esParams"></param>
         private long AddEsMin(int devId, EsData esParams)
         {
-            var model = new ESMonitor.Model.EsMin
+            var model = new EsMin
             {
                 Airpressure = 0,
                 DevId = devId,
@@ -192,7 +204,7 @@ namespace ESMonApp.AsyncSocketProtocol
         /// <param name="packetLen"></param>
         private void AddTaskResponse(int devId, byte[] buffer, int packetLen)
         {
-            var model = new ESMonitor.Model.TaskNotice();
+            var model = new TaskNotice();
             var taskId = DevsManage.GetCurTaskId(devId);
             if (taskId == 0)
                 return;
@@ -220,6 +232,34 @@ namespace ESMonApp.AsyncSocketProtocol
 
             DevsManage.SetCurTaskId(devId, 0);
             DevsManage.SetDevStatus(devId, (int)CommStatus.Free);
+        }
+
+        private void UpdateDevGps(DevCtrlResponseCmd cmd, int devId)
+        {
+            var statInfo = DevsManage.GetStatInfo(devId);
+            var data = new byte[24];
+            for (var i = 0; i < 24; i++)
+            {
+                if (cmd.Data[i] == 0x00)
+                {
+                    data[i] = 0x30;
+                }
+                else
+                {
+                    data[i] = cmd.Data[i];
+                }
+            }
+
+            var sourceCoordinate = Encoding.ASCII.GetString(data, 0, 24).Insert(12, ",");
+            var url = $"http://api.map.baidu.com/geoconv/v1/?coords={sourceCoordinate}&from=1&to=5&ak=0DpSiAEhexZzZR7c7pkYFq7E";
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            var response = request.GetResponse();
+            // ReSharper disable once AssignNullToNotNullAttribute
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            var result = JsonConvert.DeserializeObject<BaiduCordinateResult>(responseString);
+            var bll = new ESMonitor.BLL.Devs();
+            bll.UpdateGps(statInfo.StatId, result.result.y, result.result.x);
         }
     }
 }

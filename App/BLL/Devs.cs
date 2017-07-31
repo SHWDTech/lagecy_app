@@ -175,7 +175,10 @@ namespace ESMonitor.BLL
 		{
 			return _dal.GetDevRelatedStat(strWhere);
 		}
-		#endregion  ExtensionMethod
+
+	    public bool UpdateGps(int statId, string lat, string lng) => _dal.UpdateGps(statId, lat, lng);
+
+	    #endregion  ExtensionMethod
 	}
 }
 

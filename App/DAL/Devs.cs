@@ -10,7 +10,7 @@ namespace ESMonitor.DAL
 	/// </summary>
 	public class Devs
 	{
-	    #region  Method
+		#region  Method
 
 		/// <summary>
 		/// 得到最大ID
@@ -369,6 +369,21 @@ namespace ESMonitor.DAL
 			parameters[0].Value = strWhere;
 
 			return DbHelperSql.RunProcedure("T_Devs_GetRelatedStat", parameters, "ds");
+		}
+
+		public bool UpdateGps(int statId, string lat, string lng)
+		{
+			int rowsAffected;
+			IDataParameter[] parameters = {
+				new SqlParameter("@lat", SqlDbType.VarChar,1000),
+				new SqlParameter("@lng", SqlDbType.VarChar,1000),
+				new SqlParameter("@statId", SqlDbType.Int, 4) };
+			parameters[0].Value = lat;
+			parameters[1].Value = lng;
+			parameters[2].Value = statId;
+
+			DbHelperSql.RunProcedure("T_Devs_UpdateGps", parameters, out rowsAffected);
+			return rowsAffected > 0;
 		}
 
 		#endregion  MethodEx

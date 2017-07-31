@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Threading;
 using ESMonApp.AsyncSocketProtocolCore;
 
@@ -112,9 +111,7 @@ namespace ESMonApp.AsyncSocketProtocol
                                                 {
                                                     if (protocol.DoSendResult(buffer, 0, length))//true表示发送成功
                                                     {
-                                                        Debug.WriteLine("发送数据成功。");
                                                         DevsManage.SetCurTaskId(devId, taskId);
-                                                        Debug.WriteLine($"SetStatusBusy:{(int)CommStatus.Busy}");
                                                         DevsManage.SetDevStatus(devId, (int)CommStatus.Busy);
                                                         DevsManage.UpdateSendTime(devId);
                                                     }

@@ -6,6 +6,7 @@
         ModuleCfg = 0xFA,
         ModuleCtrl = 0xFB,
         DevCtrl = 0xFC,
-        DevResponse = 0xFD
+        DevResponse = 0xFD,
+        DevStatus = 0xE1
     }
 }
