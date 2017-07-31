@@ -1,10 +1,12 @@
-﻿namespace ESMonitor.Model
+﻿using System.Collections.Generic;
+
+namespace ESMonitor.Model
 {
     public class BaiduCordinateResult
     {
         public int status { get; set; }
 
-        public ResultCor result { get; set; }
+        public List<ResultCor> result { get; set; }
     }
 
     public class ResultCor

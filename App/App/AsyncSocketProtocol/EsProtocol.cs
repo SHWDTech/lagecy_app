@@ -259,7 +259,8 @@ namespace ESMonApp.AsyncSocketProtocol
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
             var result = JsonConvert.DeserializeObject<BaiduCordinateResult>(responseString);
             var bll = new ESMonitor.BLL.Devs();
-            bll.UpdateGps(statInfo.StatId, result.result.y, result.result.x);
+            var cor = result.result[0];
+            bll.UpdateGps(statInfo.StatId, cor.y, cor.x);
         }
     }
 }
