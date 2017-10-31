@@ -24,6 +24,7 @@ namespace ESMonApp
         [STAThread]
         static void Main()
         {
+            ExceptionHandler();
             var currentTime = DateTime.Now;
             GlobalContext.Properties["LogDir"] = currentTime.ToString("yyyyMM");
             GlobalContext.Properties["LogFileName"] = "_SocketAsyncServer" + currentTime.ToString("yyyyMMdd");
@@ -35,16 +36,13 @@ namespace ESMonApp
                 FileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Files");
             if (!Directory.Exists(FileDirectory))
                 Directory.CreateDirectory(FileDirectory);
-            int parallelNum;
-            if (!(int.TryParse(config.AppSettings.Settings["ParallelNum"].Value, out parallelNum)))
+            if (!(int.TryParse(config.AppSettings.Settings["ParallelNum"].Value, out var parallelNum)))
                 parallelNum = 8000;
 
-            int waitResponseTimeOutMs;
-            if (!(int.TryParse(config.AppSettings.Settings["WaitResponseTimeOutMS"].Value, out waitResponseTimeOutMs)))
+            if (!(int.TryParse(config.AppSettings.Settings["WaitResponseTimeOutMS"].Value, out var waitResponseTimeOutMs)))
                 waitResponseTimeOutMs = 1 * 60 * 1000;
 
-            int socketTimeOutMs;
-            if (!(int.TryParse(config.AppSettings.Settings["SocketTimeOutMS"].Value, out socketTimeOutMs)))
+            if (!(int.TryParse(config.AppSettings.Settings["SocketTimeOutMS"].Value, out var socketTimeOutMs)))
                 socketTimeOutMs = 5 * 60 * 1000;
 
             AsyncSocketSvr = new AsyncSocketServer(parallelNum)
@@ -63,6 +61,18 @@ namespace ESMonApp
             Application.SetCompatibleTextRenderingDefault(false);
             ThreadPool.SetMinThreads(200, 200);
             Application.Run(new MainForm());
+        }
+
+        private static void ExceptionHandler()
+        {
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                Logger.Fatal("未处理异常", (Exception)e.ExceptionObject);
+            };
+            Application.ThreadException += (sender, e) =>
+            {
+                Logger.Fatal("未处理异常", e.Exception);
+            };
         }
     }
 }
