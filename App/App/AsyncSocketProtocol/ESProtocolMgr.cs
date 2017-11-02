@@ -55,8 +55,14 @@ namespace ESMonApp.AsyncSocketProtocol
                 {
                     dt.Clear();
                     sendTask.Clear();
-                    //dt = bll.GetList(1, "Status=0", "ID desc").Tables[0];
-                    dt = bll.GetList("Status=0").Tables[0];
+                    try
+                    {
+                        dt = bll.GetList("Status=0").Tables[0];
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
 
                     for (var i = 0; i < dt.Rows.Count; i++)
                     {
