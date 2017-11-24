@@ -43,16 +43,23 @@ namespace ESMonApp.AsyncSocketCore
         {
             lock (_mList)
             {
-                foreach (var userToken in _mList)
+                try
                 {
-                    var buffer = new byte[64];
-                    var bufferLen = 0;
-                    var cmd = new TimeSyncCmd();
+                    foreach (var userToken in _mList)
+                    {
+                        var buffer = new byte[64];
+                        var bufferLen = 0;
+                        var cmd = new TimeSyncCmd();
 
-                    cmd.EncodeCmd(DateTime.Now);
-                    cmd.EncodeFrame(ref buffer, ref bufferLen);
+                        cmd.EncodeCmd(DateTime.Now);
+                        cmd.EncodeFrame(ref buffer, ref bufferLen);
 
-                    userToken.AsyncSocketInvokeElement.DoSendResult(buffer, 0, bufferLen);
+                        userToken.AsyncSocketInvokeElement.DoSendResult(buffer, 0, bufferLen);
+                    }
+                }
+                catch (Exception)
+                {
+                    return;
                 }
             }
         }
