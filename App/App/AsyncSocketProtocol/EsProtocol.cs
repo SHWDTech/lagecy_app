@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using ESMonApp.AsyncSocketCore;
 using ESMonApp.AsyncSocketProtocolCore;
+using ESMonApp.Common;
 using ESMonitor.Model;
 using Newtonsoft.Json;
 
@@ -192,6 +193,8 @@ namespace ESMonApp.AsyncSocketProtocol
             }
 
             model.DataStatus = model.WindSpeed > 5 ? "S" : "N";
+
+            RedisService.GetRedisDatabase().StringSet($"DustLastValue:{model.StatId}-{devId}", JsonConvert.SerializeObject(model));
 
             return _esMinBll.Add(model);
         }
