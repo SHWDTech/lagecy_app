@@ -194,7 +194,7 @@ namespace ESMonApp.AsyncSocketProtocol
 
             model.DataStatus = model.WindSpeed > 5 ? "S" : "N";
 
-            RedisService.GetRedisDatabase().StringSet($"DustLastValue:{model.StatId}-{devId}", JsonConvert.SerializeObject(model));
+            RedisService.GetRedisDatabase().StringSet($"DustLastValue:{model.StatId}-{devId}", JsonConvert.SerializeObject(model), expiry:TimeSpan.FromMinutes(1));
 
             return _esMinBll.Add(model);
         }
